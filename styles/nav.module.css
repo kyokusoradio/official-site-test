@@ -1,0 +1,26 @@
+.btn {
+  position: relative;
+  z-index: 200;
+}
+
+.open .list {
+  transform: translateX(-100%);
+}
+
+.list {
+  position: fixed;
+  inset: 0 -100% 0 100%;
+  font: "Termina";
+  font-weight: 900;
+  font-size: 40px;
+  -webkit-text-stroke: 1px #000;
+  color: #FFF;
+  text-shadow: 0 1px 0 #000;
+  transition: transform .4s;
+  display: grid;
+  gap: 4px;
+  place-content: left;
+  text-align: center;
+  list-style-type: none;
+  background: rgba(256,256,256,0);
+}
