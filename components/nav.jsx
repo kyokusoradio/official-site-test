@@ -29,23 +29,33 @@ export default function Nav() {
 
       <button className={styles.btn} onClick={toggleNav}>
         <span className={styles.bar}></span>
-        <span className="sr-only">MENU</span>
+        <span className={styles.srOnly}>MENU</span>
       </button>
 
       <ul className={styles.list}>
         <li>
           <Link href="/">
-            <a onClick={closeNav}>Top</a>
+            <a onClick={closeNav}>Top<span>トップ</span></a>
           </Link>
         </li>
         <li>
           <Link href="/about">
-            <a onClick={closeNav}>About</a>
+            <a onClick={closeNav}>About<span>旭操ラジオについて</span></a>
           </Link>
         </li>
         <li>
           <Link href="/member">
-            <a onClick={closeNav}>Member</a>
+            <a onClick={closeNav}>Member<span>メンバー紹介</span></a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/episodes">
+            <a onClick={closeNav}>Episodes<span>エピソード</span></a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/links">
+            <a onClick={closeNav}>Links<span>関連リンク</span></a>
           </Link>
         </li>
       </ul>

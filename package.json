@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sass": "sass styles/scss/ :styles/css/ --no-source-map --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -23,10 +24,14 @@
     "plaiceholder": "^2.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.54.8",
     "sharp": "^0.30.7"
   },
   "devDependencies": {
+    "@types/node": "^18.7.15",
+    "@types/react": "^18.0.18",
     "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "typescript": "^4.8.2"
   }
 }

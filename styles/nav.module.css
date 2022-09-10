@@ -1,6 +1,76 @@
 .btn {
+  all: unset;
+  outline: revert;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
   position: relative;
   z-index: 200;
+}
+
+.open .btn {
+  color: #020202;
+}
+
+.close .btn {
+  color: #000;
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+}
+
+.btn::before, .btn::after, .btn .bar {
+  grid-area:  1/1;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform .4s;
+}
+
+.close .btn::before {
+  transform: translateY(-8px);
+}
+
+.close .btn::after {
+  transform: translateY(8px);
+}
+
+.open .btn::before {
+  transform: rotate(45deg);
+  width: 32px;
+}
+
+.open .btn::after {
+  transform: rotate(-45deg);
+  width: 32px;
+}
+
+.open .btn .bar {
+  transform: scale(0);
+}
+
+.srOnly{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.list {
+  position: fixed;
+  inset: 0 -100% 0 100%;
+  z-index: 100;
+  background: #FFF;
+  transition: transform .4s;
 }
 
 .open .list {
@@ -8,15 +78,28 @@
 }
 
 .list {
-  position: fixed;
-  inset: 0 -100% 0 100%;
-  font: "Termina";
+  list-style-type: none;
+  color: #FFF;
+  text-shadow: 0 2px #000;
+  font-family: "Termina";
   font-weight: 900;
   font-size: 40px;
-  -webkit-text-stroke: 1px #000;
-  color: #FFF;
-  text-shadow: 0 1px 0 #000;
-  transition: transform .4s;
-  list-style-type: none;
-  background: rgba(256,256,256,0);
+  line-height: 2;
+  margin: 0;
+  padding-top: 60px;
+  padding-inline-start: 16px;
+}
+
+.list li a {
+  -webkit-text-stroke: 1.5px #000;
+}
+
+.list span {
+  font-size: 16px;
+  font-family: "Noto Sans JP";
+  font-weight: 700;
+  margin-left: 16px;
+  color: #000;
+  -webkit-text-stroke: 0px;
+  text-shadow: 0 0;
 }
