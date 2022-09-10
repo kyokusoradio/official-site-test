@@ -34,7 +34,7 @@ export default function Nav() {
 
       <ul className={styles.list}>
         <li>
-          <Link href="/aaa">
+          <Link href="/">
             <a onClick={closeNav}>Top<span>トップ</span></a>
           </Link>
         </li>

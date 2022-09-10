@@ -4,11 +4,13 @@
 }
 
 .logo {
-  width: 10%;
+  width: 15%;
   height: auto;
+  margin-right: 8px;
 }
 
 .title img {
-  width: 80%;
+  width: 75%;
   height: auto;
+  transform: translateY(25%)
 }

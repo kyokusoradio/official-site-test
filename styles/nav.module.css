@@ -26,7 +26,7 @@
   grid-area:  1/1;
   content: "";
   display: block;
-  width: 32px;
+  width: 24px;
   height: 2px;
   background-color: currentColor;
   transition: transform .4s;
@@ -42,10 +42,12 @@
 
 .open .btn::before {
   transform: rotate(45deg);
+  width: 32px;
 }
 
 .open .btn::after {
   transform: rotate(-45deg);
+  width: 32px;
 }
 
 .open .btn .bar {
@@ -78,13 +80,18 @@
 .list {
   list-style-type: none;
   color: #FFF;
-  text-shadow: 0 1px #000;
+  text-shadow: 0 2px #000;
   font-family: "Termina";
   font-weight: 900;
   font-size: 40px;
   line-height: 2;
+  margin: 0;
+  padding-top: 60px;
   padding-inline-start: 16px;
-  -webkit-text-stroke: 1px #000;
+}
+
+.list li a {
+  -webkit-text-stroke: 1.5px #000;
 }
 
 .list span {
