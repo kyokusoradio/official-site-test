@@ -1,5 +1,7 @@
 import styles from "styles/top-page.module.css"
 
+import {Hero} from "components/animation/hero"
+
 export default function Toppage() {
   return (
     <section className={styles.heroContainer}>
@@ -9,7 +11,7 @@ export default function Toppage() {
       </h1>
       <p className={styles.subtitle}>「そういえば」な話題をゆるっとお届けするポッドキャスト</p>
       <div className={styles.topAnimation}>
-        
+        <Hero />
       </div>
     </section>
   )
