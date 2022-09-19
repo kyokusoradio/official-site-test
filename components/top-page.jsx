@@ -1,5 +1,7 @@
 import styles from "styles/top-page.module.css"
 
+import Link from 'next/link'
+
 import {Hero} from "components/animation/hero"
 import {Yukiue} from "components/animation/yukiue"
 import {Sugioka} from "components/animation/sugioka"
@@ -72,6 +74,17 @@ export default function Toppage() {
         </h2>
         <div className={styles.episodePlayer}>
           <Episodeplayer />
+        </div>
+        <div className={styles.alsoListen}>
+          <h3>You Can Also Listen</h3>
+          <p>視聴可能なプラットフォーム</p>
+          <ul className={styles.platformList}>
+            <li>
+              <Link href='https://podcasts.apple.com/jp/podcast/%E6%97%AD%E6%93%8D%E3%83%A9%E3%82%B8%E3%82%AA-kyokuso-radio/id1571370763'>
+                <a><img src="src/images/applepodcast.svg" alt=" "></img>Apple Podcast</a>
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
       <section className={styles.linksContainer}>
