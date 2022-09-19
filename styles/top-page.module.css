@@ -79,6 +79,12 @@
   margin: 3rem auto 0 auto;
 }
 
+.aboutContainer p {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
 .membersTitle, .episodesTitle, .linksTitle {
   width: 100%;
   text-align: center;
@@ -99,6 +105,63 @@
   color: #000;
   font-weight: bold;
   font-size: 0.83rem;
+}
+
+.yukiue, .sugioka {
+  display: flex;
+  align-items: flex-start;
+  gap: 3vw;
+  margin-bottom: 2rem;
+}
+
+.yukiue__flexleft, .sugioka__flexright {
+  width: 100%;
+  height: clac(218% / 174);
+  overflow: hidden;
+  border: 1px solid #000;
+  border-radius: 5px;
+  align-self: center;
+}
+
+
+.yukiueTitle {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.65px 1.31px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(50vw / 5);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.yukiueSubtitle, .sugiokaSubtitle {
+  text-align: center;
+  font-size: 0.83rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.sugiokaTitle {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.65px 1.31px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(50vw / 6);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.yukiueText, .sugiokaText{
+  font-size: 0.825rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.sugiokaText {
+  text-align: right;
 }
 
 .episodesTitle__main{
