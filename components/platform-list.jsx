@@ -26,6 +26,7 @@ export function PlatformList() {
         <Link href="https://podcasts.apple.com/jp/podcast/%E6%97%AD%E6%93%8D%E3%83%A9%E3%82%B8%E3%82%AA-kyokuso-radio/id1571370763">
           <a>
             <img src="./images/google.svg"></img>
+            Google Podcast
           </a>
         </Link>
       </li>
@@ -33,11 +34,13 @@ export function PlatformList() {
         <Link href="https://podcasts.apple.com/jp/podcast/%E6%97%AD%E6%93%8D%E3%83%A9%E3%82%B8%E3%82%AA-kyokuso-radio/id1571370763">
           <a>
             <img src="./images/amazon.svg"></img>
+            Amazon Music
           </a>
         </Link>
       </li>
       <Link href='https://podcasts.apple.com/jp/podcast/%E6%97%AD%E6%93%8D%E3%83%A9%E3%82%B8%E3%82%AA-kyokuso-radio/id1571370763'>
         <a><img src="./images/stitcher.svg"></img></a>
+        Stitcher
       </Link>
     </ul>
   )
