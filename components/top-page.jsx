@@ -77,9 +77,11 @@ export default function Toppage() {
           <Episodeplayer />
         </div>
         <div className={styles.alsoListen}>
-          <h3>You Can Also Listen</h3>
-          <p>視聴可能なプラットフォーム</p>
-          <PlatformList />
+          <h3 className={styles.alsoListen__title}>You Can Also Listen</h3>
+          <p className={styles.alsoListen__subtitle}>視聴可能なプラットフォーム</p>
+          <div className={styles.listWrap}>
+            <PlatformList />
+          </div>
         </div>
       </section>
       <section className={styles.linksContainer}>

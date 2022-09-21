@@ -176,10 +176,36 @@
 
 .episodePlayer {
   width: 100%;
-  height: 52vh;
+  height: 120vw;
   border: 1.5px solid #000;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.alsoListen {
+  text-align: center;
+}
+
+.alsoListen__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.45px 1px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(90vw / 13);
+  margin: 1.5rem 0 0.25rem 0;
+}
+
+.alsoListen__subtitle {
+  text-align: center;
+  font-size: 0.83rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.listWrap {
+  text-align: center;
 }
 
 .linksTitle__main__top{
