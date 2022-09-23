@@ -90,6 +90,18 @@ export default function Toppage() {
           <span className={styles.linksTitle__main__bottom}>Contents</span><br></br>
           <span className={styles.linksTitle__sub}>各種リンクとコンテンツ</span>
         </h2>
+        <div className={styles.links__radio}>
+            <h3 className={styles.links__radio__title}>Kyokuso Radio's</h3>
+            <p className={styles.links__subtitle}>旭操ラジオ</p>
+        </div>
+        <div className={styles.links__yukiue}>
+            <h3 className={styles.links__yukiue__title}>Yukiue's</h3>
+            <p className={styles.links__subtitle}>ゆきうえ</p>
+        </div>
+        <div className={styles.links__sugioka}>
+            <h3 className={styles.links__sugioka__title}>Sugioka's</h3>
+            <p className={styles.links__subtitle}>スギオカ</p>
+        </div>
       </section>
     </>
   )
