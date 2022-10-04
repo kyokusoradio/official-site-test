@@ -250,6 +250,7 @@
 .links__radio__flexContainer, .links__yukiue__flexContainer, .links__sugioka__flexContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .links__radio__flexLeft, .links__yukiue__flexLeft, .links__sugioka__flexLeft{
@@ -260,10 +261,40 @@
 }
 
 .links__radio__flexRight, .links__yukiue__flexRight, .links__sugioka__flexRight {
-  width: 63vw;
+  width: 60vw;
   height: auto;
 }
 
-.links__radio__list{
+.links__radio__list, .links__yukiue__list, .links__sugioka__list{
   list-style-type: none;
+  padding-left: 24px;
+}
+
+.links__radio__list li, .links__yukiue__list li, .links__sugioka__list li {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+}
+
+.links__radio__list li a, .links__yukiue__list li a, .links__sugioka__list li a {
+  line-height: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+}
+
+.links__radio__list li img, .links__yukiue__list li img, .links__sugioka__list li img {
+  width: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+  margin-right: 0.8rem;
+  filter: drop-shadow(0 2px 0 #000);
+}
+
+.links__radio__list__youtube a, .links__sugioka__list__blog a {
+  display: flex;
+  align-items: center;
+}
+
+.links__radio__list__youtube a div, .links__sugioka__list__blog a div {
+  line-height: 5vw;
 }

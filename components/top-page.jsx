@@ -122,7 +122,7 @@ export default function Toppage() {
                   <Link href=''>
                     <a>
                       <img src="./images/instagram.svg"></img>
-                      <span>旭操ラジオ<br></br>-Kyokuso Radio-</span>
+                      <div>旭操ラジオ<br></br>-Kyokuso Radio-</div>
                     </a>
                   </Link>
                 </li>
@@ -143,7 +143,7 @@ export default function Toppage() {
                   <Link href=''>
                     <a>
                       <img src="./images/twitter.svg"></img>
-                      @kyokuso_yukiue
+                      @tykky4Yukiue
                     </a>
                   </Link>
                 </li>
@@ -151,15 +151,15 @@ export default function Toppage() {
                   <Link href=''>
                     <a>
                       <img src="./images/instagram.svg"></img>
-                      kyokuso_yukiue
+                      tykky4yukiue
                     </a>
                   </Link>
                 </li>
                 <li className={styles.links__yukiue__list__youtube}>
                   <Link href=''>
                     <a>
-                      <img src="./images/instagram.svg"></img>
-                      <span>旭操ラジオ<br></br>-Kyokuso yukiue-</span>
+                      <img src="./images/blog.svg"></img>
+                      ゆきうえのブログ
                     </a>
                   </Link>
                 </li>
@@ -180,23 +180,23 @@ export default function Toppage() {
                   <Link href=''>
                     <a>
                       <img src="./images/twitter.svg"></img>
-                      @kyokuso_radio
+                      @chansugi2019
                     </a>
                   </Link>
                 </li>
-                <li className={styles.links__radio__list__instagram}>
+                <li className={styles.links__sugioka__list__instagram}>
                   <Link href=''>
                     <a>
                       <img src="./images/instagram.svg"></img>
-                      kyokuso_radio
+                      chansugi106
                     </a>
                   </Link>
                 </li>
-                <li className={styles.links__radio__list__youtube}>
+                <li className={styles.links__sugioka__list__blog}>
                   <Link href=''>
                     <a>
-                      <img src="./images/instagram.svg"></img>
-                      <span>旭操ラジオ<br></br>-Kyokuso Radio-</span>
+                      <img src="./images/blog.svg"></img>
+                      <div>スギちゃんのANN</div>
                     </a>
                   </Link>
                 </li>
