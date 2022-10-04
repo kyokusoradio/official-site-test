@@ -6,7 +6,10 @@ import {Hero} from "components/animation/hero"
 import {Yukiue} from "components/animation/yukiue"
 import {Sugioka} from "components/animation/sugioka"
 import { Episodeplayer } from "components/episode-player"
-import {PlatformList} from "components/platform-list"
+import { PlatformList } from "components/platform-list"
+import { RadioImage } from "components/link-image"
+import { YukiueImage } from "components/link-image"
+import { SugiokaImage } from "components/link-image"
 
 export default function Toppage() {
   return (
@@ -92,15 +95,114 @@ export default function Toppage() {
         </h2>
         <div className={styles.links__radio}>
             <h3 className={styles.links__radio__title}>Kyokuso Radio's</h3>
-            <p className={styles.links__subtitle}>旭操ラジオ</p>
+          <p className={styles.links__subtitle}>旭操ラジオ</p>
+          <div className={styles.links__radio__flexContainer}>
+            <div className={styles.links__radio__flexLeft}>
+              <RadioImage />
+            </div>
+            <div className={styles.links__radio__flexRight}>
+              <ul className={styles.links__radio__list}>
+                <li className={styles.links__radio__list__twitter}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/twitter.svg"></img>
+                      @kyokuso_radio
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__radio__list__instagram}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      kyokuso_radio
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__radio__list__youtube}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      <span>旭操ラジオ<br></br>-Kyokuso Radio-</span>
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className={styles.links__yukiue}>
             <h3 className={styles.links__yukiue__title}>Yukiue's</h3>
             <p className={styles.links__subtitle}>ゆきうえ</p>
+            <div className={styles.links__yukiue__flexContainer}>
+            <div className={styles.links__yukiue__flexLeft}>
+              <YukiueImage />
+            </div>
+            <div className={styles.links__yukiue__flexRight}>
+              <ul className={styles.links__yukiue__list}>
+                <li className={styles.links__yukiue__list__twitter}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/twitter.svg"></img>
+                      @kyokuso_yukiue
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__yukiue__list__instagram}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      kyokuso_yukiue
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__yukiue__list__youtube}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      <span>旭操ラジオ<br></br>-Kyokuso yukiue-</span>
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className={styles.links__sugioka}>
             <h3 className={styles.links__sugioka__title}>Sugioka's</h3>
             <p className={styles.links__subtitle}>スギオカ</p>
+            <div className={styles.links__sugioka__flexContainer}>
+            <div className={styles.links__sugioka__flexLeft}>
+              <SugiokaImage />
+            </div>
+            <div className={styles.links__sugioka__flexRight}>
+              <ul className={styles.links__sugioka__list}>
+                <li className={styles.links__sugioka__list__twitter}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/twitter.svg"></img>
+                      @kyokuso_radio
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__radio__list__instagram}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      kyokuso_radio
+                    </a>
+                  </Link>
+                </li>
+                <li className={styles.links__radio__list__youtube}>
+                  <Link href=''>
+                    <a>
+                      <img src="./images/instagram.svg"></img>
+                      <span>旭操ラジオ<br></br>-Kyokuso Radio-</span>
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -229,3 +229,41 @@
   margin-top: -35%;
   line-height: 0.9;
 }
+
+.links__subtitle {
+  text-align: center;
+  font-size: 0.83rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.links__radio__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.5px #000;
+  font-size: calc(100vw / 10);
+}
+
+.links__radio__flexContainer, .links__yukiue__flexContainer, .links__sugioka__flexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links__radio__flexLeft, .links__yukiue__flexLeft, .links__sugioka__flexLeft{
+  width: 35vw;
+  height: calc(148vw * 35 / 136);
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.links__radio__flexRight, .links__yukiue__flexRight, .links__sugioka__flexRight {
+  width: 63vw;
+  height: auto;
+}
+
+.links__radio__list{
+  list-style-type: none;
+}
