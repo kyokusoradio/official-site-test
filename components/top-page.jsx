@@ -35,6 +35,11 @@ export default function Toppage() {
           僕たちならではの視点を取り入れて、ゆるっとお話しする番組です。</p>
         <p>配信は週に１エピソード程度で頑張っています。</p>
         <p>お便り・質問などお待ちしております。</p>
+        <div className={styles.linkToAboutPage}>
+          <Link href='about'>
+            <a>お便り・質問を送る</a>
+          </Link>
+        </div>
       </section>
       <section className={styles.membersContainer}>
         <h2 className={styles.membersTitle}>

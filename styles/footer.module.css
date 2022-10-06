@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: #000;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footerLink{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.wrapper a {
+  color: #FFF;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.copyright {
+  font-family: 'Noto-Sans-JP';
+  color: #fff;
+  margin: 0;
+  font-size: .75rem;
+}
+
