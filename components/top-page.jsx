@@ -37,7 +37,7 @@ export default function Toppage() {
         <p>お便り・質問などお待ちしております。</p>
         <div className={styles.linkToAboutPage}>
           <Link href='about'>
-            <a>お便り・質問を送る</a>
+            <a>もっと旭操ラジオについて知る</a>
           </Link>
         </div>
       </section>
