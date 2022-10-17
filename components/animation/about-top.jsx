@@ -1,7 +1,6 @@
 import React from "react"
 import Lottie, { className } from "react-lottie"
 import animationData from "src/videos/about-top.json"
-import styles from 'styles/page-image.module.css'
 
 
 export function AboutTop() {
@@ -17,5 +16,5 @@ export function AboutTop() {
       },
     };
 
-  return <Lottie options={defaultOptions} height="auto" width="150%" />
+  return <Lottie options={defaultOptions} height="auto" width="100%" />
 }
