@@ -44,6 +44,11 @@ export default function Nav() {
           </Link>
         </li>
         <li>
+          <Link href="/news">
+            <a onClick={closeNav}>News<span>お知らせ</span></a>
+          </Link>
+        </li>
+        <li>
           <Link href="/member">
             <a onClick={closeNav}>Member<span>メンバー紹介</span></a>
           </Link>
