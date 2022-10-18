@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header>
       <div className={styles.flexContainer}>
-        <Link href="">
+        <Link href="/">
           <a>
             <Logo />
           </a>
