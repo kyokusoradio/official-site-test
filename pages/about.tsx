@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from 'styles/about-page.module.css'
-
 import Link from 'next/link'
 
 import Header from "components/header"
@@ -15,14 +14,14 @@ const About: NextPage = () => {
       <>
       <Header />
       <main className={styles.contents}>
-        <div className={styles.titleBox}>
+      <div className={styles.titleBox}>
         <h1 className={styles.titleBox__title}>About</h1>
         <p className={styles.titleBox__subtitle}>旭操ラジオってなんなん？</p>
       </div>
       <div className={styles.imageFrame}>
         <AboutTop />
       </div>
-      
+
       <div className={styles.texts}>
         <p className={styles.text}>旭操ラジオは、トップページにも書いたように、日常の中に潜む「そういえば」な話題を取り上げ僕たちならではの視点を取り入れて、ゆるっとお話しする番組です。</p>
         <p className={styles.text}>配信は週に１エピソード程度で頑張っていますが不定期だと思ってくれた方ががっかりすることは少ないと思います。</p>
@@ -31,14 +30,13 @@ const About: NextPage = () => {
           出演したいという方がいたら基本OKで検討します。<br />
           その場合も下のお便りを書くボタンで教えてください。</p>
         </div>
-        
+
         <div className={styles.linkToForm}>
           <Link href=''>
             <a>質問・お便りを送る</a>
           </Link>
         </div>
       </main>
-      
       <Footer />
       </>
   )

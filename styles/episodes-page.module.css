@@ -1,0 +1,46 @@
+.contents {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  margin-bottom: 3rem;
+}
+
+.titleBox {
+  width: 100%;
+}
+
+.titleBox__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow:  1px 2px #000;
+  -webkit-text-stroke: 0.91px #000;
+  font-size: calc(100vw / 6.5);
+  margin: 2rem 0 0 0;
+  text-align: center;
+}
+
+.titleBox__subtitle {
+  font-size: calc(100vw / 30);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.imageFrame{
+  width: 100%;
+  height: calc(30000% / 360);
+  border: 1.5px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text{
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+}

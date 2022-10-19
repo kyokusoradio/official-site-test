@@ -59,8 +59,8 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link href="/links">
-            <a onClick={closeNav}>Links<span>関連リンク</span></a>
+          <Link href="/blogs">
+            <a onClick={closeNav}>Blogs<span>ブログや関連リンクなど</span></a>
           </Link>
         </li>
       </ul>
