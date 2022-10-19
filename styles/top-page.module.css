@@ -139,6 +139,11 @@
   align-self: center;
 }
 
+.yukiue__flexleft > svg, .sugioka__flexright > svg {
+  height: 110%;
+  width: auto;
+}
+
 
 .yukiueTitle {
   font-family: "Termina";
