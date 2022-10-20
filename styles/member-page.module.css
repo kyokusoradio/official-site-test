@@ -44,3 +44,25 @@
   font-weight: bold;
   line-height: 1.5;
 }
+
+.host__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow:  1px 2px #000;
+  -webkit-text-stroke: 0.91px #000;
+  font-size: calc(100vw / 8);
+  margin: 2rem 0 0 0;
+  text-align: center;
+}
+
+.host__subtitle{
+  font-size: calc(100vw / 30);
+  font-weight: bold;
+  text-align: center;
+}
+
+.host__strong {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
