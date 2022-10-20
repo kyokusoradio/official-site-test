@@ -36,7 +36,7 @@ const Members: NextPage = () => {
         <section className={styles.host}>
           <h2 className={styles.host__title}>Main Hosts</h2>
           <p className={styles.host__subtitle}>メインパーソナリティ</p>
-          <div className={styles.host__yukiue}>
+          <div className={styles.host__yukiue} id="yukiue">
             <Person
               name="Yukiue"
               ruby="ゆきうえ/ゆっきー"
@@ -46,6 +46,7 @@ const Members: NextPage = () => {
               instagramOn
               otherUrl=''
               othersOn
+              othersTitle='ゆきうえのデザイン日記（仮）へ'
               text={
                 <>
                   <p>
@@ -66,7 +67,7 @@ const Members: NextPage = () => {
               <ProfileYukiue />
             </Person>
           </div>
-          <div className={styles.host__sugioka}>
+          <div className={styles.host__sugioka} id="sugioka">
             <Person name="Sugioka"
               ruby="スギオカ/スギちゃん"
               twitter='tykky4yukiue'
@@ -75,6 +76,7 @@ const Members: NextPage = () => {
               instagramOn
               otherUrl=''
               othersOn
+              othersTitle="スギちゃんのANNS（仮）へ"
               text={
                 <>
                   <p>

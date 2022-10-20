@@ -10,7 +10,7 @@ export function Person(
     children,
     twitter, twitterOn = false,
     instagram, instagramOn = false,
-    otherUrl, othersOn = false,
+    otherUrl, othersOn = false, othersTitle,
     text
     }
 ) {
@@ -52,21 +52,21 @@ export function Person(
                   </Link>
             </li>
             }
-            {othersOn && 
-              <li className={styles.link__list__item}>
-                  <Link href={otherUrl}>
-                    <a>
-                      <img src="./images/blog.svg"></img>
-                    </a>
-                  </Link>
-                </li>
-            }
               </ul>
       </div>
 
       <div className={styles.text}>
         {text}
       </div>
+      {othersOn && 
+              <div className={styles.otherLink} >
+                  <Link href={otherUrl}>
+                    <a>
+                      {othersTitle}
+                    </a>
+                  </Link>
+                </div>
+            }
     </div>
   )
 }

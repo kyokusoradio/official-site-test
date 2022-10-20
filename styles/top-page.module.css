@@ -185,6 +185,19 @@
   text-align: right;
 }
 
+.member__more {
+  width: 100%;
+  height: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+  display: block;
+  line-height: 3rem;
+  font-weight: bold;
+}
+
 .episodesTitle__main{
   font-family: "Termina";
   font-weight: 900;

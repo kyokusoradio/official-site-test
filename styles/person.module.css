@@ -62,3 +62,19 @@
   font-weight: 500;
   line-height: 1.5;
 }
+
+.otherLink {
+  width: 100%;
+  height: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+}
+
+.otherLink a {
+  display: block;
+  line-height: 3rem;
+  font-weight: bold;
+}
