@@ -33,10 +33,10 @@ const Members: NextPage = () => {
         <p className={styles.text}>このページではゆきうえとスギオカの情報を掲載していますが、随時来てくれたゲストの皆さんも追加していこうと思っています。</p>
       </div>
 
-        <section className={styles.host}>
+        <section className={styles.host} id="yukiue">
           <h2 className={styles.host__title}>Main Hosts</h2>
           <p className={styles.host__subtitle}>メインパーソナリティ</p>
-          <div className={styles.host__yukiue} id="yukiue">
+          <div className={styles.host__yukiue} >
             <Person
               name="Yukiue"
               ruby="ゆきうえ/ゆっきー"
@@ -60,14 +60,14 @@ const Members: NextPage = () => {
                     大学ではコーヒー等を飲むサークルに所属し、現在はIT企業でデザイナーをしている。
                   </p>
                   <p>トムとジェリーが好きで、LINEスタンプは全制覇しているが、塩顔で基本的に目が死んでいる。</p>
-                  <p>個人ブログ「ゆきうえのデザイン日記(仮)」では、ラジオでは話しきれない最近知った面白いデザインやコーヒー、趣味のことについて記事を書く予定。</p>
+                  <p id="sugioka">個人ブログ「ゆきうえのデザイン日記(仮)」では、ラジオでは話しきれない最近知った面白いデザインやコーヒー、趣味のことについて記事を書く予定。</p>
                 </>
               }
             >
               <ProfileYukiue />
             </Person>
           </div>
-          <div className={styles.host__sugioka} id="sugioka">
+          <div className={styles.host__sugioka}>
             <Person name="Sugioka"
               ruby="スギオカ/スギちゃん"
               twitter='tykky4yukiue'
@@ -76,7 +76,7 @@ const Members: NextPage = () => {
               instagramOn
               otherUrl=''
               othersOn
-              othersTitle="スギちゃんのANNS（仮）へ"
+              othersTitle="スギちゃんのANNS（仮）へニッポンs（仮）へ"
               text={
                 <>
                   <p>
