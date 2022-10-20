@@ -1,7 +1,6 @@
 import styles from "styles/top-page.module.css"
 
 import Link from 'next/link'
-import {HashLink} from 'react-router-hash-link'
 
 import {Hero} from "components/animation/hero"
 import {Yukiue} from "components/animation/yukiue"
@@ -59,8 +58,10 @@ export default function Toppage() {
               デザイナー。<br></br>
               デザイン目線や、ちょっと独特な世界観で話をすることが多い。
             </p>
-            <div className={member__more}>
-              <HashLink to="/member#yukiue">より詳しく</HashLink>
+            <div className={styles.member__more}>
+              <Link href='/member#yukiue'>
+                <a>より詳しく</a>
+                </Link>
             </div>
           </div>
         </div>
@@ -74,8 +75,10 @@ export default function Toppage() {
               ツッコミ的なポジションで、話し出すと止まらない。<br></br>
               アイドルオタク。
             </p>
-            <div className={member__more}>
-              <HashLink to="/member#sugioka">より詳しく</HashLink>
+            <div className={styles.member__more}>
+              <Link href='/member#sugioka'>
+                <a>より詳しく</a>
+                </Link>
             </div>
           </div>
           <div className={styles.sugioka__flexright}>
