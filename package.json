@@ -29,6 +29,7 @@
     "react-lottie-player": "^1.4.3",
     "react-router-dom": "^6.4.2",
     "react-router-hash-link": "^2.4.3",
+    "react-share": "^4.4.1",
     "sass": "^1.54.8",
     "sharp": "^0.30.7"
   },
