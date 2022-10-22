@@ -13,31 +13,38 @@ import Footer from "components/footer"
 type Help={
   title:string;
   date:string;
-  tags:string;
+  tags: string;
+  // URL: string;
 }
 
 export async function getStaticProps() {
-  const apitoken = 'secret_wJF6vfpZ5AZukYvaPGRRZMWdIb1wecRHN1MBiw8YmAT';
-  const apidatabaseId = "46081c22b2cd4751b2aa3e093f99aef6";
-  const apinotion = new Client({ auth: apitoken });
+  const apidatabaseId = process.env.NOTION_DATABASE_ID;
+  const apinotion = new Client({ auth: process.env.NOTION_TOKEN });
 
   const data = await apinotion.databases.query({
-    database_id: apidatabaseId,
+    database_id: apidatabaseId || "",
     sorts: [{
       property: 'date',
       direction: 'descending',
     },],
   });
 
-    const helpList: Help[]=data.results.map((_:any)=>_.properties).map(_=>{
-    return{
-      date: _.date.date.start,
-      title: _.title.title[0].plain_text,
-      tags: _.tags.select.name
+
+  const helpList: Help[]=data.results.map((_:any)=>_.properties).map(prop=>{
+    return {
+      date: prop.date.date.start,
+      title: prop.title.title[0].plain_text,
+      tags: prop.tags.select.name,
+      // URL: _.URL.url,
     };
+    
   });
 
-  return {props:{helpList},revalidate:30};
+
+  return {
+    props: { helpList },
+    revalidate: 30,
+  };
 }
 
 
@@ -59,13 +66,21 @@ const News = ({helpList}: Props) => {
         <NewsTop />
       </div>
 
-        <h3>気になるcardをクリックすると記事へ飛べるよー</h3>
-        <div className={styles.grid}>
+        <h2 className={styles.listTitle}>お知らせ一覧</h2>
+
+        <div className={styles.newsList}>
           {helpList.map((_)=>(
-          <div className={styles.card} key={_.title}>
-            <h3>{_.date}</h3>
-            <Link href='' passHref><p> {_.title}</p></Link>
-            <hr/>
+          <div className={styles.NewsCard} key={_.title}>
+              <Link href="" passHref>
+                <a className={styles.newsContainer}>
+                  <div className={styles.newsText}>
+                    <p className={styles.newsData}>{_.date}</p>
+                  <h3 className={styles.newsTitle}> {_.title}</h3>
+                  </div>
+                  <img className={styles.newsArrow} src="./images/arrow.svg"></img>
+                </a>
+              </Link>
+              <hr />
           </div>
           ))}
         </div>
