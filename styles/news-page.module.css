@@ -44,3 +44,51 @@
   font-weight: bold;
   line-height: 1.5;
 }
+
+.listTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.newsList {
+  width: 100%;
+}
+
+.newsCard {
+  margin-top: 2rem;
+}
+
+.newsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.newsText {
+  margin-right: 1.5rem;
+}
+
+.newsData {
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.newsTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: .5rem;
+  margin-bottom: 0;
+}
+
+.newsArrow {
+  height: 2.5rem;
+  width: 2.5rem;
+  filter: drop-shadow(0 2px 0 #000);
+}

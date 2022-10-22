@@ -1,6 +1,7 @@
 import styles from "styles/top-page.module.css"
 
 import Link from 'next/link'
+import {Client}from"@notionhq/client"
 
 import {Hero} from "components/animation/hero"
 import {Yukiue} from "components/animation/yukiue"
@@ -10,6 +11,7 @@ import { PlatformList } from "components/platform-list"
 import { RadioImage } from "components/link-image"
 import { YukiueImage } from "components/link-image"
 import { SugiokaImage } from "components/link-image"
+import NewsSection from "components/news-section"
 
 export default function Toppage() {
   return (
@@ -38,6 +40,18 @@ export default function Toppage() {
         <div className={styles.linkToAboutPage}>
           <Link href='/about'>
             <a>もっと旭操ラジオについて知る</a>
+          </Link>
+        </div>
+      </section>
+      <section className={styles.newsContainer}>
+        <h2 className={styles.newsTitle}>
+          <span className={styles.newsTitle__main}>News</span><br></br>
+          <span className={styles.newsTitle__sub}>お知らせ</span>
+        </h2>
+        <NewsSection />
+        <div className={styles.linkToNewsPage}>
+          <Link href='/news/'>
+            <a>お知らせ一覧へ</a>
           </Link>
         </div>
       </section>
