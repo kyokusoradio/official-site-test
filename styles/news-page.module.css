@@ -55,10 +55,13 @@
 
 .newsList {
   width: 100%;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .newsCard {
   margin-top: 2rem;
+  list-style-type: none;
 }
 
 .newsContainer {
