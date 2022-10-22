@@ -10,7 +10,8 @@ import Toppage from "components/top-page"
 import { NewsTop } from "components/animation/news-top"
 import Footer from "components/footer"
 
-type Help={
+type Help = {
+  id: string;
   title:string;
   date:string;
   tags: string;
@@ -18,11 +19,11 @@ type Help={
 }
 
 export async function getStaticProps() {
-  const apidatabaseId = process.env.NOTION_DATABASE_ID;
-  const apinotion = new Client({ auth: process.env.NOTION_TOKEN });
+  const databaseId = process.env.NOTION_DATABASE_ID;
+  const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
-  const data = await apinotion.databases.query({
-    database_id: apidatabaseId || "",
+  const data = await notion.databases.query({
+    database_id: databaseId || "",
     sorts: [{
       property: 'date',
       direction: 'descending',
@@ -30,21 +31,21 @@ export async function getStaticProps() {
   });
 
 
-  const helpList: Help[]=data.results.map((_:any)=>_.properties).map(prop=>{
-    return {
-      date: prop.date.date.start,
-      title: prop.title.title[0].plain_text,
-      tags: prop.tags.select.name,
-      // URL: _.URL.url,
-    };
-    
-  });
-
-
+  const helpList: Help[] = data.results.map(
+    (_: any) => _.properties).map(
+      prop => {
+        return {
+          id: prop.id,
+          date: prop.date.date.start,
+          title: prop.title.title[0].plain_text,
+          tags: prop.tags.select.name,
+        };});
   return {
     props: { helpList },
     revalidate: 30,
   };
+
+
 }
 
 
@@ -71,7 +72,7 @@ const News = ({helpList}: Props) => {
         <div className={styles.newsList}>
           {helpList.map((_)=>(
           <div className={styles.NewsCard} key={_.title}>
-              <Link href="" passHref>
+              <Link href={`/${_.id}`} passHref>
                 <a className={styles.newsContainer}>
                   <div className={styles.newsText}>
                     <p className={styles.newsData}>{_.date}</p>

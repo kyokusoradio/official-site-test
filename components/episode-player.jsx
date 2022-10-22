@@ -20,5 +20,3 @@ export function Episodeplayer(){
         </div>
     );
 }
-
-

@@ -25,7 +25,7 @@ export default function NewsSection({ posts }) {
                 <h3 className={styles.postTitle}>
                   <Link href={`/${post.id}`}>
                     <a>
-                      <Text text={post.properties.Name.title} />
+                      <Text text={post.properties.title.title} />
                     </a>
                   </Link>
                 </h3>
