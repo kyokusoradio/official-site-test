@@ -3,7 +3,10 @@ import Head from "next/head";
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "/project/official-site/pages/news/index";
-import styles from "styles/news-content.module.css";
+import styles from "styles/yukiue-blog-content.module.css";
+
+import Header from "components/header"
+import Footer from "components/footer"
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -169,12 +172,12 @@ export default function Post({ page, blocks }) {
     return <div />;
   }
   return (
-    <div>
+    <>
       <Head>
         <title>{page.properties.title.title[0].plain_text}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header />
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.title.title} />
@@ -183,19 +186,27 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/">
-            <a className={styles.back}>← Go home</a>
+          <Link href="/yukiue-blog">
+            <a className={styles.back}>← Go back</a>
           </Link>
         </section>
       </article>
-    </div>
+      <Footer />
+    </>
   );
 }
 
 export const getStaticPaths = async () => {
+  const databaseId = process.env.YUKIUE_BLOG_ID
   const database = await getDatabase(databaseId);
   return {
-    paths: database.map((page) => ({ params: { id: page.id } })),
+    paths: database.map(
+      (page) => ({
+        params: {
+          id: page.id,
+          slug: page.properties.slug.rich_text[0].plain_text
+        }
+      })),
     fallback: true,
   };
 };

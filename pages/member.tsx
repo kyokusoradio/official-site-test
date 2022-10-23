@@ -44,7 +44,7 @@ const Members: NextPage = () => {
               twitterOn
               instagram='tykky4yukiue'
               instagramOn
-              otherUrl=''
+              otherUrl='/yukiue-blog/'
               othersOn
               othersTitle='ゆきうえのデザイン日記（仮）へ'
               text={
@@ -70,11 +70,11 @@ const Members: NextPage = () => {
           <div className={styles.host__sugioka}>
             <Person name="Sugioka"
               ruby="スギオカ/スギちゃん"
-              twitter='tykky4yukiue'
+              twitter='chansugi2019'
               twitterOn
-              instagram='tykky4yukiue'
+              instagram='chansugi106'
               instagramOn
-              otherUrl=''
+              otherUrl='/sugioka-blog/'
               othersOn
               othersTitle="スギちゃんのANNS（仮）へニッポンs（仮）へ"
               text={

@@ -18,7 +18,7 @@ import Footer from "components/footer"
 
 import NewsPosts from "components/news-posts"
 
-const Home: NextPage = ({ posts }) => {
+const Home: NextPage = ({ posts }: any) => {
   return (
       <>
       <Header />

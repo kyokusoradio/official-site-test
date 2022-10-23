@@ -61,7 +61,7 @@ export default function LinksSection() {
             <div className={styles.links__yukiue__flexRight}>
               <ul className={styles.links__yukiue__list}>
                 <li className={styles.links__yukiue__list__twitter}>
-                  <Link href=''>
+                  <Link href='https://twitter.com/tykky4Yukiue'>
                     <a>
                       <img src="./images/twitter.svg"></img>
                       @tykky4Yukiue
@@ -69,7 +69,7 @@ export default function LinksSection() {
                   </Link>
                 </li>
                 <li className={styles.links__yukiue__list__instagram}>
-                  <Link href=''>
+                  <Link href='https://www.instagram.com/tykky4yukiue'>
                     <a>
                       <img src="./images/instagram.svg"></img>
                       tykky4yukiue
@@ -77,10 +77,10 @@ export default function LinksSection() {
                   </Link>
                 </li>
                 <li className={styles.links__yukiue__list__youtube}>
-                  <Link href=''>
+                  <Link href='/yukiue-blog/'>
                     <a>
                       <img src="./images/blog.svg"></img>
-                      ゆきうえのブログ
+                      ゆきうえのデザイン日記（仮）
                     </a>
                   </Link>
                 </li>
@@ -98,7 +98,7 @@ export default function LinksSection() {
             <div className={styles.links__sugioka__flexRight}>
               <ul className={styles.links__sugioka__list}>
                 <li className={styles.links__sugioka__list__twitter}>
-                  <Link href=''>
+                  <Link href='https://twitter.com/chansugi2019'>
                     <a>
                       <img src="./images/twitter.svg"></img>
                       @chansugi2019
@@ -106,7 +106,7 @@ export default function LinksSection() {
                   </Link>
                 </li>
                 <li className={styles.links__sugioka__list__instagram}>
-                  <Link href=''>
+                  <Link href='https://www.instagram.com/chansugi106'>
                     <a>
                       <img src="./images/instagram.svg"></img>
                       chansugi106
