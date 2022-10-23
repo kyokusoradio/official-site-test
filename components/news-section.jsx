@@ -1,54 +1,30 @@
-import Link from "next/link";
-import { getNewsDatabase } from "../lib/api";
-
 import styles from "styles/news-section.module.css"
+import { getNewsData } from "lib/api.js";
 
-export const databaseId = process.env.NOTION_DATABASE_ID;
+import Link from "next/link"
+import { Text } from "../pages/news/[id].js";
 
-export default function NewsSection({ posts }) {
-  console.log(`posts: ${posts}`)
+export default function NewsPosts({ posts }) {
   return (
-    <div>
-      <main className={styles.container}>
-        <ol className={styles.posts}>
-          {/* {posts.map((post) => {
-            const date = new Date(post.last_edited_time).toLocaleString(
-              "en-US",
-              {
-                month: "short",
-                day: "2-digit",
-                year: "numeric",
-              }
-            );
-            return (
-              <li key={post.id} className={styles.post}>
-                <h3 className={styles.postTitle}>
-                  <Link href={`/${post.id}`}>
-                    <a>
-                      <Text text={post.properties.title.title} />
-                    </a>
-                  </Link>
-                </h3>
-
-                <p className={styles.postDescription}>{date}</p>
-                <Link href={`/${post.id}`}>
-                  <a> Read post →</a>
-                </Link>
-              </li>
-            );
-          })} */}
-        </ol>
-      </main>
-    </div>
-  );
+    <ol className={styles.newsList}>
+      {posts.map((post) => {
+        const date = new Date(post.last_edited_time).toLocaleDateString();
+        return (
+          <li key={post.id} className={styles.NewsCard}>
+            <Link href={`/news/${post.id}`}>
+              <a className={styles.newsContainer}>
+                <div className={styles.newsText}>
+                  <p className={styles.newsData}>{date}</p>
+                  <h3 className={styles.newsTitle}>
+                    <Text text={post.properties.title.title} />
+                  </h3>
+                </div>
+                <img className={styles.newsArrow} src="../images/arrow.svg"></img>
+              </a>
+            </Link>
+          </li>
+        );
+      })}
+    </ol>
+  )
 }
-
-export const getStaticProps = async () => {
-  const database = await getNewsDatabase(databaseId);
-  return {
-    props: {
-      posts: database,
-    },
-    revalidate: 10,
-  };
-};
