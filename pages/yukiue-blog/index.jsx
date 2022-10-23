@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import { getDatabase, getNewsData } from "lib/api";
-import { Text } from "../yukiue-blog/[slug]";
+import { getYukiueBlog } from "lib/api";
+import { Text } from "./[id]";
 
 import { NextPage } from 'next'
 import Image from 'next/image'
@@ -10,11 +10,8 @@ import styles from 'styles/news-page.module.css'
 
 import Header from "components/header"
 import Toppage from "components/top-page"
-import { NewsTop } from "components/animation/news-top"
-import NewsPosts from "components/news-posts"
+import YukiuePosts from "components/yukiue-posts"
 import Footer from "components/footer"
-
-export const databaseId = process.env.NEWS_DATABASE_ID;
 
 export default function Home({ posts }) {
   return (
@@ -25,12 +22,9 @@ export default function Home({ posts }) {
         <h1 className={styles.titleBox__title}>News</h1>
         <p className={styles.titleBox__subtitle}>大切な皆さんへ たまに大切なお知らせがあります</p>
       </div>
-      <div className={styles.imageFrame}>
-        <NewsTop />
-      </div>
 
-        <h2 className={styles.listTitle}>お知らせ一覧</h2>
-        <NewsPosts posts={posts} />
+        <h2 className={styles.listTitle}>ブログ一覧</h2>
+        <YukiuePosts posts={posts} />
       </main>
       <Footer />
     </>
@@ -39,7 +33,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getNewsData()
+  const posts = await getYukiueBlog()
 
   return {
     props: {

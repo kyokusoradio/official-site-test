@@ -1,17 +1,18 @@
 import styles from "styles/yukiue-blog-content.module.css"
-import { getYukiueBlog } from "lib/api.js";
+import { getYukiueBlog } from "lib/api";
 
 import Link from "next/link"
-import { Text } from "../pages/yukiue-blog/[slug]";
+import { Text } from "../pages/yukiue-blog/[id].js";
 
-export default function YukiueBlogPosts({ posts }) {
+export default function YukiuePosts({ posts }) {
   return (
     <ol className={styles.newsList}>
       {posts.map((post) => {
-        const date = new Date(post.last_edited_time).toLocaleDateString();
+        const date = new Date(post.properties.date.date.start).toLocaleDateString();
+        const slug = post.properties.slug.rich_text[0].plain_text
         return (
-          <li key={post.id} className={styles.newsCard}>
-            <Link href={`/yukiue-blog/${post.properties.slug.title}`}>
+          <li key={post.properties.slug.rich_text.text} className={styles.newsCard}>
+            <Link href={`/yukiue-blog/${post.id}`}>
               <a className={styles.newsContainer}>
                 <div className={styles.newsText}>
                   <p className={styles.newsData}>{date}</p>
