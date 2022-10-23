@@ -1,5 +1,7 @@
 import styles from "styles/episode.module.css"
 
+import Link from "next/link"
+
 import { Episodeplayer } from "components/episode-player"
 import { PlatformList } from "components/platform-list"
 
@@ -12,6 +14,11 @@ export default function EpisodeSection() {
         </h2>
         <div className={styles.episodePlayer}>
           <Episodeplayer />
+      </div>
+      <div className={styles.linkToEpisodesPage}>
+          <Link href='/episodes'>
+            <a>他のエピソードを聞く</a>
+          </Link>
         </div>
         <div className={styles.alsoListen}>
           <h3 className={styles.alsoListen__title}>You Can Also Listen</h3>

@@ -33,6 +33,23 @@
   overflow: hidden;
 }
 
+.linkToEpisodesPage {
+  width: 100%;
+  height: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.linkToEpisodesPage a {
+  display: block;
+  line-height: 3rem;
+  font-weight: bold;
+}
+
 .alsoListen {
   text-align: center;
 }

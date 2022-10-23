@@ -44,3 +44,7 @@
   font-weight: bold;
   line-height: 1.5;
 }
+
+.Embed__Container-sc-gmu91j-0 + a {
+  display: none;
+}

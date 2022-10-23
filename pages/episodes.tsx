@@ -16,8 +16,9 @@ const Episodes: NextPage = () => {
       <div className={styles.titleBox}>
         <h1 className={styles.titleBox__title}>Episodes</h1>
         <p className={styles.titleBox__subtitle}>現在進行形の黒歴史たち</p>
-      </div>
-
+        </div>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div className="elfsight-app-4469befb-70ce-459f-b272-cccb78170775"></div>
       </main>
       <Footer />
       </>
