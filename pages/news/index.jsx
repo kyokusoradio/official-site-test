@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { getDatabase } from "lib/api";
+import { getDatabase, getNewsData } from "lib/api";
 import { Text } from "./[id].js";
 
 import { NextPage } from 'next'
@@ -11,6 +11,7 @@ import styles from 'styles/news-page.module.css'
 import Header from "components/header"
 import Toppage from "components/top-page"
 import { NewsTop } from "components/animation/news-top"
+import NewsPosts from "components/news-section"
 import Footer from "components/footer"
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
@@ -30,7 +31,7 @@ export default function Home({ posts }) {
 
         <h2 className={styles.listTitle}>お知らせ一覧</h2>
 
-        <ol className={styles.newsList}>
+        {/* <ol className={styles.newsList}>
           {posts.map((post) => {
             const date = new Date(post.last_edited_time).toLocaleDateString();
             return (
@@ -49,7 +50,8 @@ export default function Home({ posts }) {
               </li>
             );
           })}
-        </ol>
+        </ol> */}
+        <NewsPosts posts={posts} />
       </main>
       <Footer />
     </>
@@ -57,13 +59,13 @@ export default function Home({ posts }) {
   );
 }
 
-export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId);
+export async function getStaticProps() {
+  const posts = await getNewsData()
 
   return {
     props: {
-      posts: database,
+      posts: posts,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
-};
+}

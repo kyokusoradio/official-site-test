@@ -1,0 +1,132 @@
+.linksContainer {
+  width: 92%;
+  margin: 3rem auto 0 auto;
+}
+
+.linksTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.linksTitle__main__top{
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.5px #000;
+  font-size: calc(100vw / 5.2);
+  margin: 2rem 0 -20% 0;
+  line-height: 0.8;
+}
+
+.linksTitle__main__bottom{
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.5px #000;
+  font-size: calc(100vw / 6.6);
+  margin-top: -35%;
+  line-height: 0.9;
+}
+
+.linksTitle__sub {
+  font-family: "Noto Sans JP";
+  color: #000;
+  font-weight: bold;
+  font-size: 0.83rem;
+}
+
+
+.links__subtitle {
+  text-align: center;
+  font-size: 0.83rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.links__radio__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.7px 1.2px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(100vw / 15);
+  text-align: center;
+  margin-bottom: .25rem;
+}
+
+.links__yukiue__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.7px 1.2px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(100vw / 10);
+  text-align: center;
+  margin-bottom: .25rem;
+}
+
+.links__sugioka__title {
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.7px 1.2px #000;
+  -webkit-text-stroke: 1px #000;
+  font-size: calc(100vw / 10);
+  text-align: center;
+  margin-bottom: .25rem;
+}
+
+.links__radio__flexContainer, .links__yukiue__flexContainer, .links__sugioka__flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links__radio__flexLeft, .links__yukiue__flexLeft, .links__sugioka__flexLeft{
+  width: 35vw;
+  height: calc(148vw * 35 / 136);
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.links__radio__flexRight, .links__yukiue__flexRight, .links__sugioka__flexRight {
+  width: 60vw;
+  height: auto;
+}
+
+.links__radio__list, .links__yukiue__list, .links__sugioka__list{
+  list-style-type: none;
+  padding-left: 24px;
+}
+
+.links__radio__list li, .links__yukiue__list li, .links__sugioka__list li {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+}
+
+.links__radio__list li a, .links__yukiue__list li a, .links__sugioka__list li a {
+  line-height: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+}
+
+.links__radio__list li img, .links__yukiue__list li img, .links__sugioka__list li img {
+  width: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+  margin-right: 0.8rem;
+  filter: drop-shadow(0 2px 0 #000);
+}
+
+.links__radio__list__youtube a, .links__sugioka__list__blog a {
+  display: flex;
+  align-items: center;
+}
+
+.links__radio__list__youtube a div, .links__sugioka__list__blog a div {
+  line-height: 5vw;
+}

@@ -1,0 +1,75 @@
+.heroContainer {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+
+.title {
+  font-family: "Termina";
+  font-weight: 900;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.82px #000;
+}
+
+.titleTop {
+  font-size: calc(100vw / 6);
+  margin-bottom: -25%;
+  line-height: 0.8;
+}
+
+.titleBottom {
+  font-size: calc(100vw / 4);
+  margin-top: -25%;
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: calc(100vw / 30);
+  font-weight: bold;
+  text-align: center;
+  margin-top: -5%;
+}
+
+.topAnimation {
+  width: 100%;
+  height: calc(40000vw / 360);
+  border: 1.5px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.topAnimation > div {
+  height: auto;
+  width: 150%;
+  position: absolute;
+  top: -16.5%;
+  left: -27.5%;
+}
+
+.copy {
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+.copy__main{
+  font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.2px #000;
+  font-size: calc(100vw / 10.7);
+  margin: 2rem 0 1rem 0;
+}
+
+.copy__sub {
+  color: #000;
+  font-weight: bold;
+  font-size: 0.83rem;
+}
