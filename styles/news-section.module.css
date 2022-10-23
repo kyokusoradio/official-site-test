@@ -1,46 +1,44 @@
-.newsList {
-  width: 100%;
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.newsCard {
-  margin-top: 3.5rem;
-  list-style-type: none;
-}
-
-.newsCard:first-of-type {
-  margin-top: 1rem;
-}
-
 .newsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.newsText {
-  margin-right: 1.5rem;
-}
-
-.newsData {
-  font-size: .75rem;
-  font-weight: 400;
-  line-height: 1.2;
-  margin: 0;
+  width: 92%;
+  margin: 3rem auto 0 auto;
 }
 
 .newsTitle {
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.5;
-  margin-top: .5rem;
-  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
-.newsArrow {
-  height: 2.5rem;
-  width: 2.5rem;
-  filter: drop-shadow(0 2px 0 #000);
+.newsTitle__main {
+    font-family: "Termina";
+  font-weight: 900;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.5px #000;
+  font-size: calc(100vw / 4);
+  margin: 2rem 0 0 0;
 }
+
+.linkToNewsPage {
+  width: 100%;
+  height: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+}
+
+.linkToNewsPage a {
+  display: block;
+  line-height: 3rem;
+  font-weight: bold;
+}
+
+
+.newsTitle__sub {
+  font-family: "Noto Sans JP";
+  color: #000;
+  font-weight: bold;
+  font-size: 0.83rem;
+}
+
