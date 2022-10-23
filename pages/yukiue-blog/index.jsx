@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { getDatabase, getNewsData } from "lib/api";
-import { Text } from "./[id].js";
+import { Text } from "../yukiue-blog/[slug]";
 
 import { NextPage } from 'next'
 import Image from 'next/image'

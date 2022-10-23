@@ -3,7 +3,7 @@ import Head from "next/head";
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "/project/official-site/pages/news/index";
-import styles from "styles/news-content.module.css";
+import styles from "styles/yukiue-blog-content.module.css";
 
 export const Text = ({ text }) => {
   if (!text) {
