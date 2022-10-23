@@ -11,7 +11,7 @@ import styles from 'styles/news-page.module.css'
 import Header from "components/header"
 import Toppage from "components/top-page"
 import { NewsTop } from "components/animation/news-top"
-import NewsPosts from "components/news-section"
+import NewsPosts from "components/news-posts"
 import Footer from "components/footer"
 
 export const databaseId = process.env.NOTION_DATABASE_ID;

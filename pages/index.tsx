@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
+import Link from "next/link"
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from 'styles/Home.module.css'
+import newsStyles from "styles/news-section.module.css"
 
 import {getNewsData} from "lib/api"
 
@@ -12,15 +14,28 @@ import AboutSection from "components/about-section"
 import MemberSection from "components/member-section"
 import EpisodeSection from "components/episode-section"
 import LinksSection from "components/links-section"
-import NewsPosts from "components/news-section"
 import Footer from "components/footer"
 
-const Home: NextPage = ({}) => {
+import NewsPosts from "components/news-posts"
+
+const Home: NextPage = ({ posts }) => {
   return (
       <>
       <Header />
       <HeroSection />
       <AboutSection />
+      <section className={newsStyles.newsContainer}>
+        <h2 className={newsStyles.newsTitle}>
+          <span className={newsStyles.newsTitle__main}>News</span><br></br>
+          <span className={newsStyles.newsTitle__sub}>お知らせ</span>
+        </h2>
+        <NewsPosts posts={posts} />
+        <div className={newsStyles.linkToNewsPage}>
+          <Link href='/news/'>
+            <a>お知らせ一覧へ</a>
+          </Link>
+        </div>
+      </section>
       <MemberSection />
       <EpisodeSection />
       <LinksSection />
@@ -33,7 +48,7 @@ export default Home
 
 
 export async function getStaticProps() {
-  const posts = await getNewsData() 
+  const posts = await getNewsData(2) 
   return {
     props: {
       posts: posts,
