@@ -122,11 +122,11 @@
   filter: drop-shadow(0 2px 0 #000);
 }
 
-.links__radio__list__youtube a, .links__sugioka__list__blog a {
+.links__radio__list__youtube a, .links__sugioka__list__blog a, .links__yukiue__list__youtube a {
   display: flex;
   align-items: center;
 }
 
-.links__radio__list__youtube a div, .links__sugioka__list__blog a div {
+.links__radio__list__youtube a div, .links__sugioka__list__blog a div, .links__yukiue__list__youtube p {
   line-height: 5vw;
 }

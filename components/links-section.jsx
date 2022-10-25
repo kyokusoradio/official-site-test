@@ -80,7 +80,7 @@ export default function LinksSection() {
                   <Link href='/yukiue-blog/'>
                     <a>
                       <img src="./images/blog.svg"></img>
-                      ゆきうえのデザイン日記（仮）
+                      <p>ゆきうえのデザイン日記（仮）</p>
                     </a>
                   </Link>
                 </li>
