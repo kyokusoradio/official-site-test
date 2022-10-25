@@ -2,19 +2,20 @@ import { Fragment } from "react";
 import Meta from "components/meta"
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
+import {databaseId} from "./index"
 import styles from "styles/news-content.module.css";
 
 import Header from "components/header";
 import Footer from "components/footer";
 
-export const databaseId = process.env.NEWS_DATABASE_ID;
-
 export const Text = ({ text }) => {
   if (!text) {
     console.log(`text is null`)
+    console.log(text);
     return null;
   }
   console.log(`text is not null`)
+  console.log(text);
   return text.map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
@@ -61,9 +62,11 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
+  console.log(`type: ${type}, id: ${id}`);
 
   switch (type) {
     case "paragraph":
+      console.log(`value.text: ${value.plain_text}`)
       return (
         <p>
           <Text text={value.text} />
@@ -76,12 +79,14 @@ const renderBlock = (block) => {
         </h1>
       );
     case "heading_2":
+      console.log(`value: ${value.text}`)
       return (
         <h2>
           <Text text={value.text} />
         </h2>
       );
     case "heading_3":
+      console.log(`value: ${value.text}`)
       return (
         <h3>
           <Text text={value.text} />
@@ -229,7 +234,6 @@ export const getStaticProps = async (context) => {
           children: await getBlocks(block.id),
         };
       }),
-    console.log(`blocks--: ${blocks}`)
   );
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
@@ -238,7 +242,6 @@ export const getStaticProps = async (context) => {
         (x) => x.id === block.id
       )?.children;
     }
-    console.log(`block-type-: ${block.type}`)
     return block;
   });
   return {
