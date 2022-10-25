@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Link from "next/link"
-import Head from 'next/head'
+import Meta from "components/meta"
 import Image from 'next/image'
 import styles from 'styles/Home.module.css'
 import newsStyles from "styles/news-section.module.css"
@@ -20,7 +20,8 @@ import NewsPosts from "components/news-posts"
 
 const Home: NextPage = ({ posts }: any) => {
   return (
-      <>
+    <>
+      <Meta pageTitle={undefined} pageDesc={undefined} pageImg={undefined} pageImgW={undefined} pageImgH={undefined} />
       <Header />
       <HeroSection />
       <AboutSection />

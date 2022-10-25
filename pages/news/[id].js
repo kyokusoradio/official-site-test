@@ -1,12 +1,17 @@
 import { Fragment } from "react";
-import Head from "next/head";
+import Meta from "components/meta"
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
-import { databaseId } from "/project/official-site/pages/news/index";
 import styles from "styles/news-content.module.css";
+
+import Header from "components/header";
+import Footer from "components/footer";
+
+export const databaseId = process.env.NEWS_DATABASE_ID;
 
 export const Text = ({ text }) => {
   if (!text) {
+    console.log(`text is null`)
     return null;
   }
   return text.map((value) => {
@@ -170,10 +175,11 @@ export default function Post({ page, blocks }) {
   }
   return (
     <div>
-      <Head>
-        <title>{page.properties.title.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Meta
+        pageTitle={page.properties.title.title[0].plain_text}
+      />
+
+      <Header />
 
       <article className={styles.container}>
         <h1 className={styles.name}>
@@ -183,17 +189,22 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/">
-            <a className={styles.back}>← Go home</a>
-          </Link>
+          <div className={styles.backToListPage}>
+            <Link href="/news">
+              <a className={styles.back}>一覧に戻る</a>
+            </Link>
+          </div>
         </section>
       </article>
+
+      <Footer />
     </div>
   );
 }
 
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
+  console.log(`database: ${database}`)
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
     fallback: true,
@@ -204,6 +215,7 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
+  console.log(`id: ${id}, page: ${page.page_id}, blocks: ${blocks[1].rich_text.content}`)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
