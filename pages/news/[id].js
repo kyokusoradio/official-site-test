@@ -14,6 +14,7 @@ export const Text = ({ text }) => {
     console.log(`text is null`)
     return null;
   }
+  console.log(`text is not null`)
   return text.map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
@@ -215,7 +216,7 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log(`id: ${id}, page: ${page.page_id}, blocks: ${blocks[1].rich_text.content}`)
+  console.log(`id: ${id}, page_id: ${page}, blocks: ${blocks[0]}`)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
@@ -227,7 +228,8 @@ export const getStaticProps = async (context) => {
           id: block.id,
           children: await getBlocks(block.id),
         };
-      })
+      }),
+    console.log(`blocks--: ${blocks}`)
   );
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
@@ -236,9 +238,9 @@ export const getStaticProps = async (context) => {
         (x) => x.id === block.id
       )?.children;
     }
+    console.log(`block-type-: ${block.type}`)
     return block;
   });
-
   return {
     props: {
       page,
