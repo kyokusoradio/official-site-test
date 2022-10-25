@@ -7,12 +7,12 @@ export function Logo() {
     <div className={styles.container}>
         <img
           className={styles.logo}
-            src="./logo.png"
+            src="/logo.png"
             alt=""
         />
         <h1 className={styles.title}>
           <img
-            src="./kyokusoradio.svg"
+            src="/kyokusoradio.svg"
             alt="kyokuso radio"
           />
         </h1>
