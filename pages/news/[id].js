@@ -15,12 +15,16 @@ export const Text = ({ text }) => {
     return null;
   }
   console.log(`text is not null`)
-  console.log(text);
-  return text.map((value) => {
+  console.log(`text: ${text}`);
+  const textStringify = JSON.stringify(text);
+  console.log(`~~textStringfy: ${textStringify}`);
+  return Object.values(text).map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+    const annoStringify = JSON.stringify(value.annotations);
+    console.log(`value.annotations: ${annoStringify}`)
     return (
       <span
         className={[
@@ -62,14 +66,16 @@ const renderNestedList = (block) => {
 const renderBlock = (block) => {
   const { type, id } = block;
   const value = block[type];
-  console.log(`type: ${type}, id: ${id}`);
+  const aryStringify = JSON.stringify(value);
+  console.log(`~~~type: ${type}, id: ${id}, value.text: ${aryStringify}`);
+  console.log(`block:  ${block}`);
 
   switch (type) {
     case "paragraph":
-      console.log(`value.text: ${value.plain_text}`)
-      return (
-        <p>
-          <Text text={value.text} />
+      console.log(`block.id: ${block.id}`)
+     return (
+       <p>
+         <Text text={aryStringify} />
         </p>
       );
     case "heading_1":
@@ -221,9 +227,8 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log(`id: ${id}, page_id: ${page}, blocks: ${blocks[0]}`)
 
-  // Retrieve block children for nested blocks (one level deep), for example toggle blocks
+  // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
   const childBlocks = await Promise.all(
     blocks

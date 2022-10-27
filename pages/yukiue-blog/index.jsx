@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { getYukiueBlog } from "lib/api";
-import { Text } from "./[id]";
+import { Text } from "./[slug]-[id]";
 
 import { NextPage } from 'next'
 import Image from 'next/image'
