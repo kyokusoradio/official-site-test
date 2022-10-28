@@ -1,12 +1,12 @@
-import Head from "next/head";
+import Meta from "components/meta"
 import Link from "next/link";
 import { getYukiueBlog } from "lib/api";
-import { Text } from "./[slug]-[id]";
+import { Text } from "./[id]";
 
 import { NextPage } from 'next'
 import Image from 'next/image'
 import {Client}from"@notionhq/client"
-import styles from 'styles/news-page.module.css'
+import styles from 'styles/blog-list-page.module.css'
 
 import Header from "components/header"
 import Toppage from "components/top-page"
@@ -16,14 +16,19 @@ import Footer from "components/footer"
 export default function Home({ posts }) {
   return (
     <>
+      <Meta
+        pageTitle="ゆきうえのデザイン日記（仮）"
+      />
       <Header />
       <main className={styles.contents}>
         <div className={styles.titleBox}>
-        <h1 className={styles.titleBox__title}>News</h1>
-        <p className={styles.titleBox__subtitle}>大切な皆さんへ たまに大切なお知らせがあります</p>
+          <h1 className={styles.titleBox__title}>
+            <span className={styles.titleTop}>Yukiue's</span><br />
+            <span className={styles.titleBottom}>Contents</span>
+          </h1>
+        <p className={styles.titleBox__subtitle}>ゆきうえのデザイン日記（仮）</p>
       </div>
 
-        <h2 className={styles.listTitle}>ブログ一覧</h2>
         <YukiuePosts posts={posts} />
       </main>
       <Footer />

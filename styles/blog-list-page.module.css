@@ -1,0 +1,36 @@
+.contents {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  margin-bottom: 3rem;
+}
+
+.titleBox__title {
+  font-family: "Termina";
+  font-weight: 900;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #FFF;
+  text-shadow: 0.91px 1.82px #000;
+  -webkit-text-stroke: 1.3px #000;
+}
+
+.titleTop {
+  font-size: calc(100vw / 6.5);
+  margin-bottom: -25%;
+  line-height: 0.8;
+}
+
+.titleBottom {
+  font-size: calc(100vw / 7);
+  margin-top: -15%;
+  line-height: 1;
+}
+
+.titleBox__subtitle {
+  font-size: calc(100vw / 30);
+  font-weight: bold;
+  text-align: center;
+  margin-top: -5%;
+}
