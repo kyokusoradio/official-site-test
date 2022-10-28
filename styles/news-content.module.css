@@ -2,6 +2,7 @@
   width: 92%;
   margin: 3rem auto 0 auto;
   margin-top: 10vh;
+  margin-bottom: 3rem;
 }
 
 .container h1 {
@@ -24,6 +25,16 @@
 
 .name {
   font-size: 36px;
+  margin-bottom: .25rem;
+}
+
+.newsDate {
+  margin-top: .25rem;
+  text-align: right;
+}
+
+.mainTexts {
+  margin-top: 2.5rem;
 }
 
 .back {
@@ -51,7 +62,7 @@
   padding: 2px 4px;
   margin: 20px 0;
   line-height: 2.3;
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: auto;
 }
 
@@ -122,5 +133,8 @@
   }
   .pre {
     background-color: rgb(15, 8, 28);
+  }
+  .code_block {
+    color: rgb(255, 241, 195);
   }
 }
