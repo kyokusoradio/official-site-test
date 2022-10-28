@@ -16,6 +16,7 @@ export const Text = ({ text }) => {
   }
   console.log(`text is not null`)
   console.log(`text: ${text}`);
+  console.log(`text: ${text.annotations}`);
   const textStringify = JSON.stringify(text);
   console.log(`~~textStringfy: ${textStringify}`);
   return Object.values(text).map((value) => {
@@ -64,10 +65,15 @@ const renderNestedList = (block) => {
 }
 
 const renderBlock = (block) => {
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  console.log(typeof(block));
+  const blockStringify = JSON.stringify(block);
+  console.log(`blockStringify: ${blockStringify}`);
   const { type, id } = block;
   const value = block[type];
+  console.log(typeof(value));
   const aryStringify = JSON.stringify(value);
-  console.log(`~~~type: ${type}, id: ${id}, value.text: ${aryStringify}`);
+  console.log(`~~~aryStringify: ${aryStringify}`);
   console.log(`block:  ${block}`);
 
   switch (type) {
@@ -75,27 +81,32 @@ const renderBlock = (block) => {
       console.log(`block.id: ${block.id}`)
      return (
        <p>
-         <Text text={aryStringify} />
+         <Text text={block.paragraph.rich_text} />
         </p>
       );
     case "heading_1":
       return (
         <h1>
-          <Text text={value.text} />
+          <Text text={block.heading_1.rich_text} />
         </h1>
       );
     case "heading_2":
-      console.log(`value: ${value.text}`)
+      console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      console.log(`heading_2: ${block.heading_2.rich_text}`)
       return (
         <h2>
-          <Text text={value.text} />
+          <Text text={block.heading_2.rich_text} />
         </h2>
       );
     case "heading_3":
-      console.log(`value: ${value.text}`)
+      console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      console.log(`heading_3: ${block.heading_3.rich_text}`)
       return (
         <h3>
-          <Text text={value.text} />
+          <Text text={block.heading_3.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
@@ -227,6 +238,7 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
+  console.log(`getStatcProps => blocks: ${blocks}`)
 
   // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
@@ -257,3 +269,33 @@ export const getStaticProps = async (context) => {
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
+
+
+// "heading_3":{
+//   "rich_text": [{
+//     "type": "text",
+//     "text": {
+//       "content": "ゲストが随時追加可能に！",
+//       "link": null
+//     },
+//     "annotations": { "bold": false, "italic": false, "strikethrough": false, "underline": false, "code": false, "color": "default" },
+//     "plain_text": "ゲストが随時追加可能に！",
+//     "href": null
+//   }],
+//     "is_toggleable": false,
+//       "color": "default"
+// }}
+
+// "paragraph": {
+//   "rich_text": [{
+//     "type": "text",
+//     "text": {
+//       "content": "具体的にはブログの更新や、ポッドキャストの新エピソードの公開などのお知らせがメインになると思いますが、久しぶりにサイトに来てださった時にはぜひチェックしてみてください。",
+//       "link": null
+//     },
+//     "annotations": { "bold": false, "italic": false, "strikethrough": false, "underline": false, "code": false, "color": "default" },
+//     "plain_text": "具体的にはブログの更新や、ポッドキャストの新エピソードの公開などのお知らせがメインになると思いますが、久しぶりにサイトに来てださった時にはぜひチェックしてみてください。",
+//     "href": null
+//   }],
+//     "color": "default"
+// }}
