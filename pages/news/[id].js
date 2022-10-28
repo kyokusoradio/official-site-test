@@ -2,24 +2,30 @@ import { Fragment } from "react";
 import Meta from "components/meta"
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
+import {databaseId} from "./index"
 import styles from "styles/news-content.module.css";
 
 import Header from "components/header";
 import Footer from "components/footer";
 
-export const databaseId = process.env.NEWS_DATABASE_ID;
-
 export const Text = ({ text }) => {
   if (!text) {
     console.log(`text is null`)
+    // console.log(text);
     return null;
   }
-  console.log(`text is not null`)
-  return text.map((value) => {
+  // console.log(`text is not null`)
+  // console.log(`text: ${text}`);
+  // console.log(`text: ${text.annotations}`);
+  // const textStringify = JSON.stringify(text);
+  // console.log(`~~textStringfy: ${textStringify}`);
+  return Object.values(text).map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+    // const annoStringify = JSON.stringify(value.annotations);
+    // console.log(`value.annotations: ${annoStringify}`)
     return (
       <span
         className={[
@@ -59,39 +65,61 @@ const renderNestedList = (block) => {
 }
 
 const renderBlock = (block) => {
+  // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  // console.log(typeof(block));
+  // const blockStringify = JSON.stringify(block);
+  // console.log(`blockStringify: ${blockStringify}`);
   const { type, id } = block;
   const value = block[type];
+  // console.log(typeof(value));
+  // const aryStringify = JSON.stringify(value);
+  // console.log(`~~~aryStringify: ${aryStringify}`);
+  // console.log(`block:  ${block}`);
 
   switch (type) {
     case "paragraph":
-      return (
-        <p>
-          <Text text={value.text} />
+      // console.log(`block.id: ${block.id}`)
+     return (
+       <p>
+         <Text text={block.paragraph.rich_text} />
         </p>
       );
     case "heading_1":
       return (
         <h1>
-          <Text text={value.text} />
+          <Text text={block.heading_1.rich_text} />
         </h1>
       );
     case "heading_2":
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`heading_2: ${block.heading_2.rich_text}`)
       return (
         <h2>
-          <Text text={value.text} />
+          <Text text={block.heading_2.rich_text} />
         </h2>
       );
     case "heading_3":
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`heading_3: ${block.heading_3.rich_text}`)
       return (
         <h3>
-          <Text text={value.text} />
+          <Text text={block.heading_3.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
+      return (
+        <li>
+          <Text text={block.bulleted_list_item.rich_text} />
+          {!!value.children && renderNestedList(block)}
+        </li>
+      );
     case "numbered_list_item":
       return (
         <li>
-          <Text text={value.text} />
+          <Text text={block.numbered_list_item.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
       );
@@ -99,8 +127,8 @@ const renderBlock = (block) => {
       return (
         <div>
           <label htmlFor={id}>
-            <input type="checkbox" id={id} defaultChecked={value.checked} />{" "}
-            <Text text={value.text} />
+            <input type="checkbox" id={id} defaultChecked={block.to_do.checked} />{" "}
+            <Text text={block.to_do.rich_text} />
           </label>
         </div>
       );
@@ -108,7 +136,7 @@ const renderBlock = (block) => {
       return (
         <details>
           <summary>
-            <Text text={value.text} />
+            <Text text={block.toggle.rich_text} />
           </summary>
           {value.children?.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -130,12 +158,12 @@ const renderBlock = (block) => {
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+      return <blockquote key={id}>{block.quote.rich_text.plain_text}</blockquote>;
     case "code":
       return (
         <pre className={styles.pre}>
           <code className={styles.code_block} key={id}>
-            {value.text[0].plain_text}
+            {block.code.rich_text[0].plain_text}
           </code>
         </pre>
       );
@@ -186,13 +214,16 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.title.title} />
         </h1>
-        <section>
+        <p className={styles.newsDate}>
+          {page.properties.date.date.start}
+        </p>
+        <section className={styles.mainTexts}>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
           <div className={styles.backToListPage}>
             <Link href="/news">
-              <a className={styles.back}>一覧に戻る</a>
+              <a className={styles.back}>他のお知らせを見る</a>
             </Link>
           </div>
         </section>
@@ -205,7 +236,7 @@ export default function Post({ page, blocks }) {
 
 export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId);
-  console.log(`database: ${database}`)
+  // console.log(`database: ${database}`)
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
     fallback: true,
@@ -216,9 +247,9 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log(`id: ${id}, page_id: ${page}, blocks: ${blocks[0]}`)
+  console.log(`getStatcProps => blocks: ${blocks}`)
 
-  // Retrieve block children for nested blocks (one level deep), for example toggle blocks
+  // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
   const childBlocks = await Promise.all(
     blocks
@@ -229,7 +260,6 @@ export const getStaticProps = async (context) => {
           children: await getBlocks(block.id),
         };
       }),
-    console.log(`blocks--: ${blocks}`)
   );
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
@@ -238,7 +268,6 @@ export const getStaticProps = async (context) => {
         (x) => x.id === block.id
       )?.children;
     }
-    console.log(`block-type-: ${block.type}`)
     return block;
   });
   return {
@@ -249,3 +278,15 @@ export const getStaticProps = async (context) => {
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
+
+
+// {
+//   "caption": [],
+//     "rich_text": [{
+//       "type": "text",
+//       "text": { "content": "codecodecode", "link": null },
+//       "annotations": { "bold": false, "italic": false, "strikethrough": false, "underline": false, "code": false, "color": "default" },
+//       "plain_text": "codecodecode",
+//       "href": null
+//     }], "language": "javascript"
+// }
