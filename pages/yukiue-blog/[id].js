@@ -1,22 +1,31 @@
 import { Fragment } from "react";
-import Head from "next/head";
+import Meta from "components/meta"
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
-import { databaseId } from "/project/official-site/pages/news/index";
-import styles from "styles/yukiue-blog-content.module.css";
+import { databaseId } from "./index"
+import styles from "styles/news-content.module.css";
 
-import Header from "components/header"
-import Footer from "components/footer"
+import Header from "components/header";
+import Footer from "components/footer";
 
 export const Text = ({ text }) => {
   if (!text) {
+    console.log(`text is null`)
+    // console.log(text);
     return null;
   }
-  return text.map((value) => {
+  // console.log(`text is not null`)
+  // console.log(`text: ${text}`);
+  // console.log(`text: ${text.annotations}`);
+  // const textStringify = JSON.stringify(text);
+  // console.log(`~~textStringfy: ${textStringify}`);
+  return Object.values(text).map((value) => {
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+    // const annoStringify = JSON.stringify(value.annotations);
+    // console.log(`value.annotations: ${annoStringify}`)
     return (
       <span
         className={[
@@ -56,39 +65,61 @@ const renderNestedList = (block) => {
 }
 
 const renderBlock = (block) => {
+  // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  // console.log(typeof(block));
+  // const blockStringify = JSON.stringify(block);
+  // console.log(`blockStringify: ${blockStringify}`);
   const { type, id } = block;
   const value = block[type];
+  // console.log(typeof(value));
+  // const aryStringify = JSON.stringify(value);
+  // console.log(`~~~aryStringify: ${aryStringify}`);
+  // console.log(`block:  ${block}`);
 
   switch (type) {
     case "paragraph":
-      return (
-        <p>
-          <Text text={value.text} />
+      // console.log(`block.id: ${block.id}`)
+     return (
+       <p>
+         <Text text={block.paragraph.rich_text} />
         </p>
       );
     case "heading_1":
       return (
         <h1>
-          <Text text={value.text} />
+          <Text text={block.heading_1.rich_text} />
         </h1>
       );
     case "heading_2":
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`heading_2: ${block.heading_2.rich_text}`)
       return (
         <h2>
-          <Text text={value.text} />
+          <Text text={block.heading_2.rich_text} />
         </h2>
       );
     case "heading_3":
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`)
+      // console.log(`heading_3: ${block.heading_3.rich_text}`)
       return (
         <h3>
-          <Text text={value.text} />
+          <Text text={block.heading_3.rich_text} />
         </h3>
       );
     case "bulleted_list_item":
+      return (
+        <li>
+          <Text text={block.bulleted_list_item.rich_text} />
+          {!!value.children && renderNestedList(block)}
+        </li>
+      );
     case "numbered_list_item":
       return (
         <li>
-          <Text text={value.text} />
+          <Text text={block.numbered_list_item.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
       );
@@ -96,8 +127,8 @@ const renderBlock = (block) => {
       return (
         <div>
           <label htmlFor={id}>
-            <input type="checkbox" id={id} defaultChecked={value.checked} />{" "}
-            <Text text={value.text} />
+            <input type="checkbox" id={id} defaultChecked={block.to_do.checked} />{" "}
+            <Text text={block.to_do.rich_text} />
           </label>
         </div>
       );
@@ -105,7 +136,7 @@ const renderBlock = (block) => {
       return (
         <details>
           <summary>
-            <Text text={value.text} />
+            <Text text={block.toggle.rich_text} />
           </summary>
           {value.children?.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
@@ -127,12 +158,12 @@ const renderBlock = (block) => {
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote key={id}>{value.text[0].plain_text}</blockquote>;
+      return <blockquote key={id}>{block.quote.rich_text.plain_text}</blockquote>;
     case "code":
       return (
         <pre className={styles.pre}>
           <code className={styles.code_block} key={id}>
-            {value.text[0].plain_text}
+            {block.code.rich_text[0].plain_text}
           </code>
         </pre>
       );
@@ -167,46 +198,57 @@ const renderBlock = (block) => {
   }
 };
 
+
 export default function Post({ page, blocks }) {
   if (!page || !blocks) {
     return <div />;
   }
+  const src =
+          page.properties.image.files.length === 0 ? '/yukiue_blog_image-default.png' :
+            page.properties.image.files.type === "external" ? page.properties.image.files[0].external.url : page.properties.image.files[0].file.url;
   return (
-    <>
-      <Head>
-        <title>{page.properties.title.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <Meta
+        pageTitle={page.properties.title.title[0].plain_text}
+      />
+
       <Header />
+
       <article className={styles.container}>
         <h1 className={styles.name}>
           <Text text={page.properties.title.title} />
         </h1>
-        <section>
+        <p className={styles.newsDate}>
+          {page.properties.date.date.start}
+        </p>
+
+        <figure>
+          <img src={src} alt="" />
+        </figure>
+        
+
+        <section className={styles.mainTexts}>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/yukiue-blog">
-            <a className={styles.back}>← Go back</a>
-          </Link>
+          <div className={styles.backToListPage}>
+            <Link href="/news">
+              <a className={styles.back}>ブログ一覧へ</a>
+            </Link>
+          </div>
         </section>
       </article>
+
       <Footer />
-    </>
+    </div>
   );
 }
 
 export const getStaticPaths = async () => {
-  const databaseId = process.env.YUKIUE_BLOG_ID
   const database = await getDatabase(databaseId);
+  // console.log(`database: ${database}`)
   return {
-    paths: database.map(
-      (page) => ({
-        params: {
-          id: page.id,
-          slug: page.properties.slug.rich_text[0].plain_text
-        }
-      })),
+    paths: database.map((page) => ({ params: { id: page.id } })),
     fallback: true,
   };
 };
@@ -215,8 +257,9 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
+  console.log(`getStatcProps => blocks: ${blocks}`)
 
-  // Retrieve block children for nested blocks (one level deep), for example toggle blocks
+  // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
   const childBlocks = await Promise.all(
     blocks
@@ -226,7 +269,7 @@ export const getStaticProps = async (context) => {
           id: block.id,
           children: await getBlocks(block.id),
         };
-      })
+      }),
   );
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
@@ -237,7 +280,6 @@ export const getStaticProps = async (context) => {
     }
     return block;
   });
-
   return {
     props: {
       page,

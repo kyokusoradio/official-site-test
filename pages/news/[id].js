@@ -278,15 +278,3 @@ export const getStaticProps = async (context) => {
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
-
-
-// {
-//   "caption": [],
-//     "rich_text": [{
-//       "type": "text",
-//       "text": { "content": "codecodecode", "link": null },
-//       "annotations": { "bold": false, "italic": false, "strikethrough": false, "underline": false, "code": false, "color": "default" },
-//       "plain_text": "codecodecode",
-//       "href": null
-//     }], "language": "javascript"
-// }

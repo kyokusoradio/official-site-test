@@ -13,6 +13,8 @@ import Toppage from "components/top-page"
 import YukiuePosts from "components/yukiue-posts"
 import Footer from "components/footer"
 
+export const databaseId = process.env.YUKIUE_BLOG_ID;
+
 export default function Home({ posts }) {
   return (
     <>
