@@ -25,8 +25,8 @@ export default function MemberSection() {
               デザイン目線や、ちょっと独特な世界観で話をすることが多い。
             </p>
             <div>
-              <Link href='/member#yukiue' className={styles.member__more}>
-                <a>より詳しく</a>
+              <Link href='/member#yukiue' >
+                <a className={styles.member__more}>より詳しく</a>
                 </Link>
             </div>
           </div>
@@ -42,8 +42,8 @@ export default function MemberSection() {
               アイドルオタク。
             </p>
             <div>
-              <Link href='/member#sugioka'  className={styles.member__more}>
-                <a>より詳しく</a>
+              <Link href='/member#sugioka'>
+                <a className={styles.member__more}>より詳しく</a>
                 </Link>
             </div>
           </div>

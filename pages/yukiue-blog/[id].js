@@ -232,7 +232,7 @@ export default function Post({ page, blocks }) {
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
           <div className={styles.backToListPage}>
-            <Link href="/news">
+            <Link href="/yukiue-blog/">
               <a className={styles.back}>ブログ一覧へ</a>
             </Link>
           </div>

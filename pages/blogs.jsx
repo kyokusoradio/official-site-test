@@ -4,8 +4,9 @@ import Image from 'next/image'
 import styles from 'styles/blogs-page.module.css'
 import Link from 'next/link'
 
-import { getYukiueBlog } from 'lib/api'
+import { getYukiueBlog, getSugiokaBlog } from 'lib/api'
 import { YukiuePostsForBlogsPage } from "components/yukiue-posts"
+import { SugiokaPostsForBlogsPage } from 'components/sugioka-posts'
 
 import Header from "components/header"
 import Toppage from "components/top-page"
@@ -13,7 +14,7 @@ import { BlogsTop } from "components/animation/blogs-top"
 import LinksSection from "components/links-section"
 import Footer from "components/footer"
 
-export default function  Blogs ({ yukiuePosts }) {
+export default function  Blogs ({ yukiuePosts, sugiokaPosts }) {
   return (
     <>
       <Meta pageTitle="ブログとリンク"/>
@@ -51,7 +52,7 @@ export default function  Blogs ({ yukiuePosts }) {
         <section className={styles.sugiokaBlog}>
           <h2 className={styles.yukiueBlog__title}>Sugioka's blog</h2>
           <p className={styles.yukiueBlog__subtitle}>スギちゃんのオールナイトドリーマー（仮）</p>
-          <YukiuePostsForBlogsPage posts={yukiuePosts} />
+          <SugiokaPostsForBlogsPage posts={sugiokaPosts} />
           <div className={styles.linkToBlogList}>
             <Link href='/sugioka-blog/' >
               <a>他の記事も読む</a>
@@ -72,10 +73,12 @@ export default function  Blogs ({ yukiuePosts }) {
 
 export async function getStaticProps() {
   const yukiuePosts = await getYukiueBlog(3)
+  const sugiokaPosts = await getSugiokaBlog(3)
 
   return {
     props: {
       yukiuePosts: yukiuePosts,
+      sugiokaPosts: sugiokaPosts,
     },
     revalidate: 30,
   };
