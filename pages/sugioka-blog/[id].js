@@ -204,7 +204,7 @@ export default function Post({ page, blocks }) {
     return <div />;
   }
   const src =
-          page.properties.image.files.length === 0 ? '/yukiue_blog_image-default.png' :
+          page.properties.image.files.length === 0 ? '/sugioka_blog_image-default.svg' :
             page.properties.image.files.type === "external" ? page.properties.image.files[0].external.url : page.properties.image.files[0].file.url;
   return (
     <div>

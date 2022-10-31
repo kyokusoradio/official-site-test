@@ -55,14 +55,14 @@ export function SugiokaPostsForBlogsPage({ posts }) {
       <ol className={styles.blogList}>
       {posts.map((post) => {
         const date = new Date(post.properties.date.date.start).toLocaleDateString();
-        const slug = post.properties.slug.rich_text[0].plain_text
+        // const slug = post.properties.slug.rich_text[0].plain_text
         // console.log(`~~~~~~~~~~~~~~~~~~~~~~`)
         // const textStringify = JSON.stringify(post);
         // console.log(`post: ${textStringify}`)
         // // const aStringify = JSON.stringify(post.properties.image.files[0].file.url);
         // console.log(`post.properties.image.files: ${post.properties.image.files.length}`)
         const src =
-          post.properties.image.files.length === 0 ? 'sugioka_blog_image-default.png' :
+          post.properties.image.files.length === 0 ? 'sugioka_blog_image-default.svg' :
             post.properties.image.files.type === "external" ? post.properties.image.files[0].external.url : post.properties.image.files[0].file.url;
         // console.log(`~~src: ${src}`)
 
