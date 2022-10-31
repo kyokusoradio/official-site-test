@@ -32,7 +32,7 @@ const About: NextPage = () => {
         </div>
 
         <div className={styles.linkToForm}>
-          <Link href=''>
+          <Link href='https://forms.gle/pz5hExHWroocAdYw8'>
             <a>質問・お便りを送る</a>
           </Link>
         </div>
