@@ -7,3 +7,9 @@ export const siteMeta = {
   siteType: 'website',
   siteIcon: '/favicon.ico',
 }
+
+export const yukiueBlogDefault = {
+  url: 'yukiue_blog_image-default.png',
+  width: 1500,
+  height: 1500
+}
