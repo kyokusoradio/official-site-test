@@ -3,7 +3,7 @@ import Meta from "components/meta"
 import { getDatabase, getPage, getBlocks } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "./index"
-import styles from "styles/news-content.module.css";
+import styles from "styles/blog-detail.module.css";
 
 import Header from "components/header";
 import Footer from "components/footer";
@@ -218,12 +218,12 @@ export default function Post({ page, blocks }) {
         <h1 className={styles.name}>
           <Text text={page.properties.title.title} />
         </h1>
-        <p className={styles.newsDate}>
+        <p className={styles.postsDate}>
           {page.properties.date.date.start}
         </p>
 
         <figure>
-          <img src={src} alt="" />
+          <img src={src} alt="" className={styles.pageTopImage}/>
         </figure>
         
 

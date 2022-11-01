@@ -1,0 +1,147 @@
+.container {
+  width: 92%;
+  margin: 3rem auto 0 auto;
+  margin-top: 10vh;
+  margin-bottom: 3rem;
+}
+
+.container h1 {
+  font-size: 32px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container figcaption {
+  opacity: 0.6;
+}
+
+.name {
+  font-size: 36px;
+  margin-bottom: .25rem;
+}
+
+.postsDate {
+  margin-top: .25rem;
+  text-align: right;
+}
+
+.pageTopImage {
+  width: 100%;
+  height: auto;
+  border: 1.5px solid #000;
+  border-radius: 8px;
+}
+
+.mainTexts {
+  margin-top: 2.5rem;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.code {
+  font-family: monospace;
+  background-color: rgb(242, 242, 242);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.pre {
+  background-color: rgb(242, 242, 242);
+  padding: 2px 4px;
+  margin: 20px 0;
+  line-height: 2.3;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.code_block {
+  padding: 20px;
+  font-family: monospace;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file {
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  background: rgba(55, 53, 47, 0.08);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bookmark {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.backToListPage{
+  width: 40%;
+  height: 2rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+}
+
+.backToListPage a {
+  display: block;
+  font-size: 13px;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  .code {
+    background-color: rgb(15, 8, 28);
+  }
+  .file:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .pre {
+    background-color: rgb(15, 8, 28);
+  }
+  .code_block {
+    color: rgb(255, 241, 195);
+  }
+}
