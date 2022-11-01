@@ -60,9 +60,8 @@ export default function  Blogs ({ yukiuePosts, sugiokaPosts }) {
           </div>
         </section>
 
-        <LinksSection />
-
       </main>
+      <LinksSection />
       <Footer />
       </>
   )
