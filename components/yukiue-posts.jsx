@@ -2,7 +2,7 @@ import styles from "styles/yukiue-blog-content.module.css"
 import { getYukiueBlog } from "lib/api";
 
 import Link from "next/link"
-import { Text } from "../pages/yukiue-blog/[id].js";
+import { Text } from "../pages/yukiue-blog/[id]";
 
 export default function YukiuePosts({ posts }) {
   return (
