@@ -2,7 +2,7 @@ import styles from "styles/yukiue-blog-content.module.css"
 import { getYukiueBlog } from "lib/api";
 
 import Link from "next/link"
-import { Text } from "../pages/yukiue-blog/[id].js";
+import { Text } from "../pages/yukiue-blog/[id]";
 
 export default function YukiuePosts({ posts }) {
   return (
@@ -19,6 +19,8 @@ export default function YukiuePosts({ posts }) {
           post.properties.image.files.length === 0 ? 'yukiue_blog_image-default.png' :
             post.properties.image.files.type === "external" ? post.properties.image.files[0].external.url : post.properties.image.files[0].file.url;
         // console.log(`~~src: ${src}`)
+        const description =
+          post.properties.description.rich_text.length === 0 ? "" : post.properties.description.rich_text[0].text.content
 
 
         return (
@@ -33,6 +35,7 @@ export default function YukiuePosts({ posts }) {
                   <h3 className={styles.blogTitle}>
                     <Text text={post.properties.title.title} />
                   </h3>
+                  <p className={styles.blogDescription}>{description}</p>
                 </div>
               </a>
             </Link>
@@ -90,3 +93,4 @@ export function YukiuePostsForBlogsPage({ posts }) {
     
   )
 }
+

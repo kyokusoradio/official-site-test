@@ -112,6 +112,53 @@
   margin-bottom: 10px;
 }
 
+.relatedPosts{
+  margin-top: 2rem;
+}
+
+.relatedPostsTitle{
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.relContainer {
+  display: flex;
+  gap: .75rem;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: #fff;
+  filter: drop-shadow(0 1px 0 #000);
+  margin-bottom: 1.5rem;
+}
+
+.relImage {
+  margin: 0;
+  flex-basis: 30%;
+  width: 100%;
+}
+
+.relImage img {
+  width: 100%;
+  height: 100%;
+  border: .5px solid #000 ;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+.relData{
+  font-size: calc(12rem / 16);
+  margin: 0;
+}
+
+.relTitle {
+  font-size: 1rem;
+  margin-top: .5rem;
+  margin-bottom: 0;
+}
+
+
 .backToListPage{
   width: 40%;
   height: 2rem;
@@ -128,6 +175,7 @@
   line-height: 2rem;
   font-weight: bold;
 }
+
 
 @media (prefers-color-scheme: dark) {
   .code {

@@ -33,6 +33,16 @@ export default function Home({ posts }) {
 
         <YukiuePosts posts={posts} />
       </main>
+
+      <div className={styles.linkToOtherBlog}>
+        <Link href="/sugioka-blog/">
+          <a>
+            <img src="./images/blog-noline.svg"></img>
+            <p>スギちゃんのブログへ</p>
+          </a>
+        </Link>
+      </div>
+
       <Footer />
     </>
             

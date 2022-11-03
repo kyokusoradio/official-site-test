@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Meta from "components/meta"
-import { getDatabase, getPage, getBlocks } from "lib/api";
+import { getDatabase, getPage, getBlocks, getYukiRelPage } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "./index"
 import styles from "styles/blog-detail.module.css";
@@ -117,12 +117,18 @@ const renderBlock = (block) => {
         </li>
       );
     case "numbered_list_item":
-      return (
-        <li>
-          <Text text={block.numbered_list_item.rich_text} />
-          {!!value.children && renderNestedList(block)}
-        </li>
-      );
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+      // const aryStringify = JSON.stringify(value);
+      // console.log(`~~~aryStringify: ${aryStringify}`); 
+      if (!!value.children) {
+        return renderNestedList(block)
+      } else {
+        return (
+          <li>
+            <Text text={block.numbered_list_item.rich_text} />
+          </li>
+        )
+      }
     case "to_do":
       return (
         <div>
@@ -199,13 +205,13 @@ const renderBlock = (block) => {
 };
 
 
-export default function Post({ page, blocks }) {
+export default function Post({ page, blocks, rel }) {
   if (!page || !blocks) {
     return <div />;
   }
   const src =
           page.properties.image.files.length === 0 ? '/yukiue_blog_image-default.png' :
-            page.properties.image.files.type === "external" ? page.properties.image.files[0].external.url : page.properties.image.files[0].file.url;
+      page.properties.image.files.type === "external" ? page.properties.image.files[0].external.url : page.properties.image.files[0].file.url;
   return (
     <div>
       <Meta
@@ -231,6 +237,27 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
+
+          <div className={styles.relatedPosts}>
+            <hr />
+            <h2 className={styles.relatedPostsTitle}>関連記事</h2>
+            {rel.map((_, i) => {
+              return (
+                <Link href={`/yukiue-blog/${rel[i].relId}`}>
+              <a className={styles.relContainer}>
+                <figure className={styles.relImage}>
+                  <img src={rel[i].relSrc} alt='' />
+                </figure>
+                <div className={styles.relText}>
+                  <p className={styles.relData}>{rel[i].relDate}</p>
+                  <h3 className={styles.relTitle}>{rel[i].relTitle}</h3>
+                </div>
+              </a>
+            </Link>
+              )
+            })}
+          </div>
+          
           <div className={styles.backToListPage}>
             <Link href="/yukiue-blog/">
               <a className={styles.back}>ブログ一覧へ</a>
@@ -257,7 +284,16 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log(`getStatcProps => blocks: ${blocks}`)
+  // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  // const blockStringify = JSON.stringify(page);
+  // console.log(`blockStringify: ${blockStringify}`);
+  const rel = []
+  for (let i = 0; i < page.properties.relation.relation.length; i++) {
+    const relPage = await getYukiRelPage(page.properties.relation.relation[i].id);
+    rel.push(relPage)
+  } 
+  // const blockStringify = JSON.stringify(rel);
+  // console.log(`blockStringify: ${blockStringify}`);
 
   // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
@@ -284,7 +320,9 @@ export const getStaticProps = async (context) => {
     props: {
       page,
       blocks: blocksWithChildren,
+      rel,
     },
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
+
