@@ -41,3 +41,39 @@
   text-align: center;
   margin-top: -5%;
 }
+
+.linkToOtherBlog {
+  width: 45%;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  height: 3rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  filter: drop-shadow(0 2px 0 #000);
+  text-align: center;
+}
+
+.linkToOtherBlog a {
+  display: block;
+  height: 3rem;
+  line-height: 3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkToOtherBlog p {
+  display: inline-block;
+  line-height: 1.25rem;
+  margin: 0;
+  font-size: .75rem;
+}
+
+.linkToOtherBlog img {
+  width: auto;
+  height: 2.2rem;
+  vertical-align: middle;
+}
