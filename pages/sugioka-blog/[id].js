@@ -117,12 +117,21 @@ const renderBlock = (block) => {
         </li>
       );
     case "numbered_list_item":
-      return (
-        <li>
-          <Text text={block.numbered_list_item.rich_text} />
-          {!!value.children && renderNestedList(block)}
-        </li>
-      );
+      if (!!value.children) {
+        return renderNestedList(block)
+      } else {
+        return (
+          <li>
+            <Text text={block.numbered_list_item.rich_text} />
+          </li>
+        )
+      }
+      // return (
+      //   <li>
+      //     <Text text={block.numbered_list_item.rich_text} />
+      //     {!!value.children && renderNestedList(block)}
+      //   </li>
+      // );
     case "to_do":
       return (
         <div>

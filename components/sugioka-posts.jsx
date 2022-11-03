@@ -19,11 +19,13 @@ export default function SugiokaPosts({ posts }) {
           post.properties.image.files.length === 0 ? 'sugioka_blog_image-default.svg' :
             post.properties.image.files.type === "external" ? post.properties.image.files[0].external.url : post.properties.image.files[0].file.url;
         // console.log(`~~src: ${src}`)
+        const description =
+          post.properties.description.rich_text.length === 0 ? "" : post.properties.description.rich_text[0].text.content
 
 
         return (
           <li key={post.properties.slug.rich_text.text} className={styles.blogCard}>
-            <Link href={`/y-blog/${post.id}`}>
+            <Link href={`/sugioka-blog/${post.id}`}>
               <a className={styles.blogContainer}>
                 <figure className={styles.blogImage}>
                   <img src={src} alt='' />
@@ -33,6 +35,7 @@ export default function SugiokaPosts({ posts }) {
                   <h3 className={styles.blogTitle}>
                     <Text text={post.properties.title.title} />
                   </h3>
+                  <p className={styles.blogDescription}>{description}</p>
                 </div>
               </a>
             </Link>
