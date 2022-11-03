@@ -1,0 +1,18 @@
+.container {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+
+.privacyItem {
+  margin-top: 2rem;
+}
+
+.privacyItem h2{
+  margin: 0;
+  margin-bottom: .75rem;
+}
+
+.privacyItem a {
+  border-bottom: solid #000;
+}

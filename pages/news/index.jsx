@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Meta from "components/meta"
 import Link from "next/link";
 import { getDatabase, getNewsData } from "lib/api";
 import { Text } from "./[id].js";
@@ -19,6 +20,7 @@ export const databaseId = process.env.NEWS_DATABASE_ID;
 export default function Home({ posts }) {
   return (
     <>
+      <Meta pageTitle="お知らせ" />
       <Header />
       <main className={styles.contents}>
         <div className={styles.titleBox}>
