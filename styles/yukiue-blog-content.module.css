@@ -48,6 +48,10 @@
   margin-bottom: 0;
 }
 
+.blogDescription {
+  display: none;
+}
+
 .blogList li:nth-of-type(1) .blogContainer{
   flex-direction: column;
   gap: .25rem;
@@ -61,6 +65,13 @@
 
 .blogList li:nth-of-type(1) .blogContainer .blogText .blogTitle {
   font-size: 1.6rem;
+}
+
+.blogList li:nth-of-type(1) .blogContainer .blogText .blogDescription {
+  display: block;
+  font-size: .8rem;
+  color: rgb(50, 50, 50);
+  margin-top: .25rem;
 }
 
 

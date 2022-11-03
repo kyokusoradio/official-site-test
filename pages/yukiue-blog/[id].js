@@ -117,12 +117,18 @@ const renderBlock = (block) => {
         </li>
       );
     case "numbered_list_item":
-      return (
-        <li>
-          <Text text={block.numbered_list_item.rich_text} />
-          {!!value.children && renderNestedList(block)}
-        </li>
-      );
+      // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+      // const aryStringify = JSON.stringify(value);
+      // console.log(`~~~aryStringify: ${aryStringify}`); 
+      if (!!value.children) {
+        return renderNestedList(block)
+      } else {
+        return (
+          <li>
+            <Text text={block.numbered_list_item.rich_text} />
+          </li>
+        )
+      }
     case "to_do":
       return (
         <div>
@@ -288,3 +294,4 @@ export const getStaticProps = async (context) => {
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
 };
+
