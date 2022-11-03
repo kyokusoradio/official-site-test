@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import Meta from "components/meta"
 import Image from 'next/image'
 import styles from 'styles/member-page.module.css'
 import Link from 'next/link'
@@ -17,7 +17,8 @@ import { ProfileSugioka } from 'components/animation/profile-sugioka'
 
 const Members: NextPage = () => {
   return (
-      <>
+    <>
+      <Meta pageTitle="メンバー紹介" pageDesc={undefined} pageImg={undefined} pageImgW={undefined} pageImgH={undefined} />
       <Header />
       <main className={styles.contents}>
       <div className={styles.titleBox}>

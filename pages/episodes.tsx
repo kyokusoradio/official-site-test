@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import Meta from "components/meta"
 import Image from 'next/image'
 import styles from 'styles/episodes-page.module.css'
 import Link from 'next/link'
@@ -10,7 +10,8 @@ import Footer from "components/footer"
 
 const Episodes: NextPage = () => {
   return (
-      <>
+    <>
+      <Meta pageTitle="エピソード"pageDesc={undefined} pageImg={undefined} pageImgW={undefined} pageImgH={undefined} />
       <Header />
       <main className={styles.contents}>
       <div className={styles.titleBox}>

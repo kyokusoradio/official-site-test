@@ -9,7 +9,7 @@ export default function Footer() {
          <Link href="https://forms.gle/pz5hExHWroocAdYw8" className={styles.mailLink}>
           <a>お問合せ・質問</a>
         </Link>
-        <Link href='' className={styles.privacyPolicy}>
+        <Link href='/privacypolicy' className={styles.privacyPolicy}>
           <a>プライバシーポリシー</a>
         </Link>
       </div>
