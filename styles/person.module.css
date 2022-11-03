@@ -75,6 +75,24 @@
 
 .otherLink a {
   display: block;
+  height: 3rem;
   line-height: 3rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.otherLink p {
+  display: inline-block;
+  line-height: 1.25rem;
+  margin: 0;
+  font-size: .8rem;
+}
+
+.otherLink img {
+  width: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+  margin-right: .5rem;
 }

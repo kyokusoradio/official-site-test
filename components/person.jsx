@@ -62,7 +62,8 @@ export function Person(
               <div className={styles.otherLink} >
                   <Link href={otherUrl}>
                     <a>
-                      {othersTitle}
+                      <img src="./images/blog-noline.svg"></img>
+                      <p>{othersTitle}</p>
                     </a>
                   </Link>
                 </div>

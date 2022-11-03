@@ -42,7 +42,7 @@ export default function LinksSection() {
                 <li className={styles.links__radio__list__youtube}>
                   <Link href=''>
                     <a>
-                      <img src="./images/instagram.svg"></img>
+                      <img src="./images/youtube.svg"></img>
                       <div>旭操ラジオ<br></br>-Kyokuso Radio-</div>
                     </a>
                   </Link>
@@ -80,7 +80,7 @@ export default function LinksSection() {
                   <Link href='/yukiue-blog/'>
                     <a>
                       <img src="./images/blog.svg"></img>
-                      <p>ゆきうえのデザイン日記（仮）</p>
+                      <p>ゆきうえの<br />デザイン日記（仮）</p>
                     </a>
                   </Link>
                 </li>
@@ -117,7 +117,7 @@ export default function LinksSection() {
                   <Link href=''>
                     <a>
                       <img src="./images/blog.svg"></img>
-                      <div>スギちゃんのANN</div>
+                      <div>スギちゃんの<br />オールナイトドリーマー</div>
                     </a>
                   </Link>
                 </li>
