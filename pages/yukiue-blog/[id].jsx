@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Meta from "components/meta"
-import { getDatabase, getPage, getBlocks, getRelPage } from "lib/api";
+import { getDatabase, getPage, getBlocks, getYukiRelPage } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "./index"
 import styles from "styles/blog-detail.module.css";
@@ -284,16 +284,16 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+  // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
   // const blockStringify = JSON.stringify(page);
   // console.log(`blockStringify: ${blockStringify}`);
   const rel = []
   for (let i = 0; i < page.properties.relation.relation.length; i++) {
-    const relPage = await getRelPage(page.properties.relation.relation[i].id);
+    const relPage = await getYukiRelPage(page.properties.relation.relation[i].id);
     rel.push(relPage)
   } 
-  const blockStringify = JSON.stringify(rel);
-  console.log(`blockStringify: ${blockStringify}`);
+  // const blockStringify = JSON.stringify(rel);
+  // console.log(`blockStringify: ${blockStringify}`);
 
   // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks

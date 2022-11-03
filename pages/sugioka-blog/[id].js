@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Meta from "components/meta"
-import { getDatabase, getPage, getBlocks } from "lib/api";
+import { getDatabase, getPage, getBlocks, getSugiRelPage } from "lib/api";
 import Link from "next/link";
 import { databaseId } from "./index"
 import styles from "styles/blog-detail.module.css";
@@ -208,7 +208,7 @@ const renderBlock = (block) => {
 };
 
 
-export default function Post({ page, blocks }) {
+export default function Post({ page, blocks, rel }) {
   if (!page || !blocks) {
     return <div />;
   }
@@ -240,6 +240,27 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
+
+          <div className={styles.relatedPosts}>
+            <hr />
+            <h2 className={styles.relatedPostsTitle}>関連記事</h2>
+            {rel.map((_, i) => {
+              return (
+                <Link href={`/sugioka-blog/${rel[i].relId}`}>
+              <a className={styles.relContainer}>
+                <figure className={styles.relImage}>
+                  <img src={rel[i].relSrc} alt='' />
+                </figure>
+                <div className={styles.relText}>
+                  <p className={styles.relData}>{rel[i].relDate}</p>
+                  <h3 className={styles.relTitle}>{rel[i].relTitle}</h3>
+                </div>
+              </a>
+            </Link>
+              )
+            })}
+          </div>
+
           <div className={styles.backToListPage}>
             <Link href="/sugioka-blog/">
               <a className={styles.back}>ブログ一覧へ</a>
@@ -266,7 +287,12 @@ export const getStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
-  console.log(`getStatcProps => blocks: ${blocks}`)
+  // console.log(`getStatcProps => blocks: ${blocks}`)
+  const rel = []
+  for (let i = 0; i < page.properties.relation.relation.length; i++) {
+    const relPage = await getSugiRelPage(page.properties.relation.relation[i].id);
+    rel.push(relPage)
+  } 
 
   // Retrieve block children for nested ks (one level deep), for example toggle block[0]s
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
@@ -293,6 +319,7 @@ export const getStaticProps = async (context) => {
     props: {
       page,
       blocks: blocksWithChildren,
+      rel,
     },
     revalidate: 30, //ISR...前回から何秒以内のアクセスを無視するか指定します。
   };
